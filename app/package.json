@@ -6,8 +6,16 @@
     "@drizzle/react-components": "^1.5.1",
     "@drizzle/react-plugin": "^1.5.1",
     "@drizzle/store": "^1.5.1",
+    "@plasmicapp/loader-react": "^1.0.80",
+    "@plasmicapp/react-web": "^0.2.91",
+    "@plasmicpkgs/antd": "^0.0.30",
+    "@plasmicpkgs/lottie-react": "^0.0.10",
+    "antd": "^4.19.2",
+    "i": "^0.3.7",
+    "npm": "^8.5.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-router-dom": "^6.2.2",
     "react-scripts": "3.2.0"
   },
   "scripts": {

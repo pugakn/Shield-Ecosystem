@@ -1,0 +1,93 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  max-width: none;
+  background: var(--token-XcOYQB0kZaqAb);
+  min-width: 0;
+  border-radius: 14px;
+  padding: 0px 20px;
+}
+.freeBox__lyGnw {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 14px;
+}
+.freeBox___3KqMa {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox___0WTwE {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px 0px 5px;
+}
+.shieldText {
+  font-family: "Lato", sans-serif;
+  font-size: var(--token-pGM6kN_go);
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  min-width: 0;
+}
+.forgeText {
+  font-family: "Lato", sans-serif;
+  font-size: var(--token-pGM6kN_go);
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  min-width: 0;
+}
+.freeBox__zCi6Z {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: auto;
+  min-width: 0;
+  padding: 0px;
+}
+.dateText {
+  font-family: "Lato", sans-serif;
+  font-size: var(--token-QihsVZwnM);
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+}
+.unstakeButton:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}

@@ -1,0 +1,209 @@
+.root {
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  padding: 8px 24px;
+  border-width: 0px;
+}
+.rootshowStartIcon {
+  display: flex;
+}
+.rootcolor_secondary {
+  background: var(--token-ffsUfEUEo);
+}
+.rooticonOnly {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+.rootoutline {
+  border: 1px solid var(--token-UwFgsC86hUq8h);
+}
+.rootbgDifference {
+  mix-blend-mode: difference;
+}
+.rootround {
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 24px;
+}
+.rootflat {
+  padding: 0px;
+}
+.rootdisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.rootcolor_primary {
+  background: var(--token-gjjD1RnSBjqj8);
+}
+.rootcolor_primaryDark {
+  background: var(--token-HKYPlFSLw);
+}
+.rootcolor_red {
+  background: var(--token-LJa-f4zbNLRuz);
+}
+.rootcolor_white {
+  background: var(--token-Se0f4L5T10wDU);
+}
+.rootcolor_darkGray {
+  background: var(--token-7_yc6EGkHDPWs);
+}
+.rootcolor_link {
+  border-width: 0px;
+}
+.rootcolor_navLink {
+  border-width: 0px;
+}
+.root:hover {
+  background: var(--token-XcOYQB0kZaqAb);
+}
+.rootcolor_secondary:hover {
+  background: #40e569;
+}
+.rootcolor_primary:hover {
+  background: #40e569;
+}
+.rootcolor_primaryDark:hover {
+  background: #1a88ff;
+}
+.rootcolor_red:hover {
+  background: #fd5046;
+}
+.rootcolor_darkGray:hover {
+  background: var(--token-uq1fyr6cjQrqd);
+}
+.root:focus {
+  outline: none;
+}
+.slotTargetStartIcon {
+  color: var(--token-7_yc6EGkHDPWs);
+}
+.slotTargetStartIconcolor_secondary {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetStartIconcolor_primary {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetStartIconcolor_primaryDark {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetStartIconcolor_red {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetStartIconcolor_white {
+  color: var(--token-7_yc6EGkHDPWs);
+}
+.slotTargetStartIconcolor_darkGray {
+  color: var(--token-vBz44Nc4w_1Dl);
+}
+.slotTargetStartIconcolor_link {
+  color: var(--token-AcePjg9D9BBPK);
+}
+.svg__jFrTg {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  object-fit: cover;
+}
+.slotTargetChildren {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  white-space: pre;
+}
+.slotTargetChildrencolor_secondary {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetChildrenlarge {
+  font-size: 24px;
+  line-height: 1.5em;
+}
+.slotTargetChildrencolor_primary {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetChildrencolor_primaryDark {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetChildrencolor_red {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetChildrencolor_darkGray {
+  color: var(--token-vBz44Nc4w_1Dl);
+}
+.slotTargetChildrencolor_link {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetChildrencolor_navLink {
+  font-weight: 400;
+  color: var(--token-UwFgsC86hUq8h);
+}
+.rootcolor_navLink:hover .slotTargetChildrencolor_navLink {
+  color: var(--token-7_yc6EGkHDPWs);
+}
+.rootcolor_navLink:hover .slotTargetChildrencolor_navLink > .__wab_text,
+.rootcolor_navLink:hover
+  .slotTargetChildrencolor_navLink
+  > .__wab_slot-string-wrapper,
+.rootcolor_navLink:hover
+  .slotTargetChildrencolor_navLink
+  > .__wab_slot
+  > .__wab_text,
+.rootcolor_navLink:hover
+  .slotTargetChildrencolor_navLink
+  > .__wab_slot
+  > .__wab_slot-string-wrapper,
+.rootcolor_navLink:hover
+  .slotTargetChildrencolor_navLink
+  > .__wab_slot
+  > .__wab_slot
+  > .__wab_text,
+.rootcolor_navLink:hover
+  .slotTargetChildrencolor_navLink
+  > .__wab_slot
+  > .__wab_slot
+  > .__wab_slot-string-wrapper,
+.rootcolor_navLink:hover
+  .slotTargetChildrencolor_navLink
+  > .__wab_slot
+  > .__wab_slot
+  > .__wab_slot
+  > .__wab_text,
+.rootcolor_navLink:hover
+  .slotTargetChildrencolor_navLink
+  > .__wab_slot
+  > .__wab_slot
+  > .__wab_slot
+  > .__wab_slot-string-wrapper {
+  text-decoration-line: underline;
+}
+.slotTargetEndIcon {
+  color: var(--token-7_yc6EGkHDPWs);
+}
+.slotTargetEndIconcolor_secondary {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetEndIconcolor_primary {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetEndIconcolor_primaryDark {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetEndIconcolor_red {
+  color: var(--token-Se0f4L5T10wDU);
+}
+.slotTargetEndIconcolor_white {
+  color: var(--token-7_yc6EGkHDPWs);
+}
+.slotTargetEndIconcolor_darkGray {
+  color: var(--token-vBz44Nc4w_1Dl);
+}
+.slotTargetEndIconcolor_link {
+  color: var(--token-AcePjg9D9BBPK);
+}
+.svg__juj0D {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  object-fit: cover;
+}

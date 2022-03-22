@@ -1,0 +1,118 @@
+.root {
+  box-shadow: 0px 10px 10px 0px #00000026;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 267px;
+  background: #006466;
+  position: relative;
+  min-width: 350px;
+  min-height: 400px;
+  max-height: 400px;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 16px;
+  padding: 16px;
+}
+.freeBox__umHFx {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 6px 4px 4px 0px;
+}
+.title {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  color: var(--token-UwFgsC86hUq8h);
+  font-size: 16px;
+  position: relative;
+  width: auto;
+  height: auto;
+  margin-bottom: 8px;
+  align-self: center;
+  text-align: center;
+}
+.freeBox__fXij1 {
+  flex-direction: column;
+  display: flex;
+  position: relative;
+  height: 230px;
+  width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+  padding: 0px;
+  margin: 0px;
+}
+.freeBox__fXij1 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 0px);
+  height: calc(100% + 0px);
+}
+.freeBox__fXij1 > :global(.__wab_flex-container) > *,
+.freeBox__fXij1 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__fXij1 > :global(.__wab_flex-container) > picture > img,
+.freeBox__fXij1
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 0px;
+}
+.amountInput:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.amountInputapprove:global(.__wab_instance) {
+  display: none;
+}
+.svg__vliCv {
+  position: relative;
+  object-fit: cover;
+  width: 24px;
+  height: 24px;
+}
+.svg__abRop {
+  position: relative;
+  object-fit: cover;
+  width: 24px;
+  height: 24px;
+}
+.freeBox__geWsv {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  min-width: 0;
+  padding: 8px;
+}
+.approveButton:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__oD5 {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  object-fit: cover;
+}
+.svg__laCqw {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  object-fit: cover;
+}

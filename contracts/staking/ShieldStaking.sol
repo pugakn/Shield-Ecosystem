@@ -67,7 +67,7 @@ contract ShieldStaking is ReentrancyGuard, Pausable, Ownable {
     _accountPaymentPromises[msg.sender].push(PaymentPromise(now.add(stakeDuration), amount));
 
     stakingToken.safeTransferFrom(msg.sender, address(this), amount);
-    rewardsToken.mint(msg.sender, amount);
+    rewardsToken.mint(msg.sender, amount.mul(rewardPerStakedToken));
     emit Staked(msg.sender, amount);
     emit ClaimedReward(msg.sender, amount.mul(rewardPerStakedToken));
   }

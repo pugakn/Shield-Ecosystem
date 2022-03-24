@@ -55,6 +55,12 @@ function PlasmicHomePage__RenderFunc(props) {
             sty.root
           )}
         >
+          <Navbar
+            data-plasmic-name={"navbar"}
+            data-plasmic-override={overrides.navbar}
+            className={classNames("__wab_instance", sty.navbar)}
+          />
+
           <p.Stack
             as={"div"}
             data-plasmic-name={"headerHeroSection"}
@@ -62,12 +68,6 @@ function PlasmicHomePage__RenderFunc(props) {
             hasGap={true}
             className={classNames(projectcss.all, sty.headerHeroSection)}
           >
-            <Navbar
-              data-plasmic-name={"navbar"}
-              data-plasmic-override={overrides.navbar}
-              className={classNames("__wab_instance", sty.navbar)}
-            />
-
             <p.Stack
               as={"div"}
               data-plasmic-name={"columns"}
@@ -96,7 +96,7 @@ function PlasmicHomePage__RenderFunc(props) {
                           sty.text__mcvNd
                         )}
                       >
-                        {"PRE ALPHA"}
+                        {"DEMO"}
                       </div>
                     </div>
 
@@ -6348,23 +6348,36 @@ function PlasmicHomePage__RenderFunc(props) {
             data-plasmic-override={overrides.stakeSection}
             className={classNames("__wab_instance", sty.stakeSection)}
           >
-            <p.Stack
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__kjTza)}
-            >
-              <StakeCard
-                data-plasmic-name={"stakeCard"}
-                data-plasmic-override={overrides.stakeCard}
-                className={classNames("__wab_instance", sty.stakeCard)}
-              />
+            <div className={classNames(projectcss.all, sty.freeBox__zLb)}>
+              <h2
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h2,
+                  projectcss.__wab_text,
+                  sty.h2___8ULj
+                )}
+              >
+                {"Stake SHIELD"}
+              </h2>
 
-              <StakeList
-                data-plasmic-name={"stakeList"}
-                data-plasmic-override={overrides.stakeList}
-                className={classNames("__wab_instance", sty.stakeList)}
-              />
-            </p.Stack>
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__kjTza)}
+              >
+                <StakeCard
+                  data-plasmic-name={"stakeCard"}
+                  data-plasmic-override={overrides.stakeCard}
+                  className={classNames("__wab_instance", sty.stakeCard)}
+                />
+
+                <StakeList
+                  data-plasmic-name={"stakeList"}
+                  data-plasmic-override={overrides.stakeList}
+                  className={classNames("__wab_instance", sty.stakeList)}
+                />
+              </p.Stack>
+            </div>
           </Section>
 
           <Section
@@ -6379,16 +6392,14 @@ function PlasmicHomePage__RenderFunc(props) {
             >
               <div className={classNames(projectcss.all, sty.freeBox__qjBeq)}>
                 <h2
-                  data-plasmic-name={"h2"}
-                  data-plasmic-override={overrides.h2}
                   className={classNames(
                     projectcss.all,
                     projectcss.h2,
                     projectcss.__wab_text,
-                    sty.h2
+                    sty.h2___8PwRr
                   )}
                 >
-                  {"Top NFT"}
+                  {"Marketplace"}
                 </h2>
               </div>
 
@@ -6416,8 +6427,8 @@ function PlasmicHomePage__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
-    "headerHeroSection",
     "navbar",
+    "headerHeroSection",
     "columns",
     "button",
     "lottie",
@@ -6425,28 +6436,19 @@ const PlasmicDescendants = {
     "stakeCard",
     "stakeList",
     "marketItemsSection",
-    "h2",
     "marketItemList",
     "footerSection"
   ],
 
-  headerHeroSection: [
-    "headerHeroSection",
-    "navbar",
-    "columns",
-    "button",
-    "lottie"
-  ],
-
   navbar: ["navbar"],
+  headerHeroSection: ["headerHeroSection", "columns", "button", "lottie"],
   columns: ["columns", "button", "lottie"],
   button: ["button"],
   lottie: ["lottie"],
   stakeSection: ["stakeSection", "stakeCard", "stakeList"],
   stakeCard: ["stakeCard"],
   stakeList: ["stakeList"],
-  marketItemsSection: ["marketItemsSection", "h2", "marketItemList"],
-  h2: ["h2"],
+  marketItemsSection: ["marketItemsSection", "marketItemList"],
   marketItemList: ["marketItemList"],
   footerSection: ["footerSection"]
 };
@@ -6480,8 +6482,8 @@ export const PlasmicHomePage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    headerHeroSection: makeNodeComponent("headerHeroSection"),
     navbar: makeNodeComponent("navbar"),
+    headerHeroSection: makeNodeComponent("headerHeroSection"),
     columns: makeNodeComponent("columns"),
     button: makeNodeComponent("button"),
     lottie: makeNodeComponent("lottie"),
@@ -6489,7 +6491,6 @@ export const PlasmicHomePage = Object.assign(
     stakeCard: makeNodeComponent("stakeCard"),
     stakeList: makeNodeComponent("stakeList"),
     marketItemsSection: makeNodeComponent("marketItemsSection"),
-    h2: makeNodeComponent("h2"),
     marketItemList: makeNodeComponent("marketItemList"),
     footerSection: makeNodeComponent("footerSection"),
     // Metadata about props expected for PlasmicHomePage

@@ -28,11 +28,13 @@ export const PlasmicNftMintWidget__ArgProps = new Array();
 function PlasmicNftMintWidget__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
   return (
-    <div
+    <p.Stack
+      as={"div"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
+      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -51,16 +53,15 @@ function PlasmicNftMintWidget__RenderFunc(props) {
         displayMaxWidth={"100%"}
         displayMinHeight={"0"}
         displayMinWidth={"0"}
-        displayWidth={"auto"}
+        displayWidth={"155px"}
         loading={"lazy"}
       />
 
       <TextInput
-        className={classNames("__wab_instance", sty.textInput__yUtK1)}
-      />
-
-      <TextInput
-        className={classNames("__wab_instance", sty.textInput__yt2L)}
+        data-plasmic-name={"textInput"}
+        data-plasmic-override={overrides.textInput}
+        className={classNames("__wab_instance", sty.textInput)}
+        placeholder={"Title..."}
       />
 
       <Button
@@ -68,14 +69,18 @@ function PlasmicNftMintWidget__RenderFunc(props) {
         data-plasmic-override={overrides.button}
         className={classNames("__wab_instance", sty.button)}
         color={"primary"}
-      />
-    </div>
+        round={true}
+      >
+        {"Mint"}
+      </Button>
+    </p.Stack>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "button"],
+  root: ["root", "img", "textInput", "textbox", "button"],
   img: ["img"],
+  textInput: ["textInput", "textbox"],
   button: ["button"]
 };
 
@@ -109,6 +114,7 @@ export const PlasmicNftMintWidget = Object.assign(
   {
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
+    textInput: makeNodeComponent("textInput"),
     button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicNftMintWidget
     internalVariantProps: PlasmicNftMintWidget__VariantProps,

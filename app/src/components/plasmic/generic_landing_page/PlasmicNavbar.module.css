@@ -1,26 +1,25 @@
 .root {
   flex-direction: row;
   display: flex;
-  padding-top: 16px;
-  padding-right: 16px;
-  padding-left: 16px;
   width: 100%;
   position: relative;
+  background: var(--token-gjjD1RnSBjqj8);
   min-width: 0;
+  padding: 16px;
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: row;
   justify-content: center;
   align-items: center;
   min-width: 0;
-  margin-left: calc(0px - 16px);
-  width: calc(100% + 16px);
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
 }
 .root > :global(.__wab_flex-container) > *,
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
 .root > :global(.__wab_flex-container) > picture > img,
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-left: 16px;
+  margin-left: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .root {
@@ -32,7 +31,6 @@
   display: flex;
   position: relative;
   width: 100%;
-  max-width: var(--token-6WWC_8hAO229E);
   min-width: 0;
 }
 .freeBox__pntrc > :global(.__wab_flex-container) {
@@ -199,6 +197,36 @@
   position: relative;
   object-fit: cover;
 }
+.button__fAfMm:global(.__wab_instance) {
+  position: relative;
+}
+.svg__aDmeX {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  object-fit: cover;
+}
+.svg__cw6B2 {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  object-fit: cover;
+}
+.button__olm0I:global(.__wab_instance) {
+  position: relative;
+}
+.svg__fU3D5 {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  object-fit: cover;
+}
+.svg__hRmEw {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  object-fit: cover;
+}
 .button__ic0MU:global(.__wab_instance) {
   position: relative;
 }
@@ -209,21 +237,6 @@
   object-fit: cover;
 }
 .svg__ipCi {
-  width: 24px;
-  height: 24px;
-  position: relative;
-  object-fit: cover;
-}
-.button__r5CAg:global(.__wab_instance) {
-  position: relative;
-}
-.svg__bRrgi {
-  width: 24px;
-  height: 24px;
-  position: relative;
-  object-fit: cover;
-}
-.svg__yaB2N {
   width: 24px;
   height: 24px;
   position: relative;

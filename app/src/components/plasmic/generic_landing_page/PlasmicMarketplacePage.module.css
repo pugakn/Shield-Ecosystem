@@ -13,7 +13,12 @@
 }
 .navbar:global(.__wab_instance) {
   max-width: 100%;
-  position: relative;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  width: auto;
+  align-self: flex-end;
 }
 .section:global(.__wab_instance) {
   max-width: 100%;

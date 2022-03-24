@@ -9,6 +9,7 @@
 // Plasmic Project: 32A6R5tEk8Q2nVvJmPnVbf
 // Component: nAEUjCFKSM
 import * as React from "react";
+import * as p from "@plasmicapp/react-web";
 import {
   hasVariant,
   classNames,
@@ -22,7 +23,11 @@ import sty from "./PlasmicStakeItem.module.css"; // plasmic-import: nAEUjCFKSM/c
 
 export const PlasmicStakeItem__VariantProps = new Array("enabled");
 
-export const PlasmicStakeItem__ArgProps = new Array();
+export const PlasmicStakeItem__ArgProps = new Array(
+  "shieldText",
+  "forgeText",
+  "dateText"
+);
 
 function PlasmicStakeItem__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -44,41 +49,47 @@ function PlasmicStakeItem__RenderFunc(props) {
         <div className={classNames(projectcss.all, sty.freeBox___3KqMa)}>
           <div className={classNames(projectcss.all, sty.freeBox___0WTwE)}>
             <div
-              data-plasmic-name={"shieldText"}
-              data-plasmic-override={overrides.shieldText}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.shieldText
-              )}
+              data-plasmic-name={"shieldTextContainer"}
+              data-plasmic-override={overrides.shieldTextContainer}
+              className={classNames(projectcss.all, sty.shieldTextContainer)}
             >
-              {"Staked: 5000 SHIELD"}
+              <div className={classNames(projectcss.all, sty.freeBox__taRhU)}>
+                {p.renderPlasmicSlot({
+                  defaultContents: "Staked: 5000 SHIELD",
+                  value: args.shieldText,
+                  className: classNames(sty.slotTargetShieldText)
+                })}
+              </div>
             </div>
 
             <div
-              data-plasmic-name={"forgeText"}
-              data-plasmic-override={overrides.forgeText}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.forgeText
-              )}
+              data-plasmic-name={"forgeTextContainer"}
+              data-plasmic-override={overrides.forgeTextContainer}
+              className={classNames(projectcss.all, sty.forgeTextContainer)}
             >
-              {"Awarded: 5000 FORGE"}
+              <div className={classNames(projectcss.all, sty.freeBox__l9Oni)}>
+                {p.renderPlasmicSlot({
+                  defaultContents: "Awarded: 5000 FORGE",
+                  value: args.forgeText,
+                  className: classNames(sty.slotTargetForgeText)
+                })}
+              </div>
             </div>
           </div>
 
           <div className={classNames(projectcss.all, sty.freeBox__zCi6Z)}>
             <div
-              data-plasmic-name={"dateText"}
-              data-plasmic-override={overrides.dateText}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.dateText
-              )}
+              data-plasmic-name={"dateTextContainer"}
+              data-plasmic-override={overrides.dateTextContainer}
+              className={classNames(projectcss.all, sty.dateTextContainer)}
             >
-              {"Until 01/01/2001"}
+              <div className={classNames(projectcss.all, sty.freeBox__hSgk)}>
+                {p.renderPlasmicSlot({
+                  defaultContents: "Until 01/01/2001",
+                  value: args.dateText,
+                  className: classNames(sty.slotTargetDateText)
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -106,10 +117,17 @@ function PlasmicStakeItem__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "shieldText", "forgeText", "dateText", "unstakeButton"],
-  shieldText: ["shieldText"],
-  forgeText: ["forgeText"],
-  dateText: ["dateText"],
+  root: [
+    "root",
+    "shieldTextContainer",
+    "forgeTextContainer",
+    "dateTextContainer",
+    "unstakeButton"
+  ],
+
+  shieldTextContainer: ["shieldTextContainer"],
+  forgeTextContainer: ["forgeTextContainer"],
+  dateTextContainer: ["dateTextContainer"],
   unstakeButton: ["unstakeButton"]
 };
 
@@ -142,9 +160,9 @@ export const PlasmicStakeItem = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    shieldText: makeNodeComponent("shieldText"),
-    forgeText: makeNodeComponent("forgeText"),
-    dateText: makeNodeComponent("dateText"),
+    shieldTextContainer: makeNodeComponent("shieldTextContainer"),
+    forgeTextContainer: makeNodeComponent("forgeTextContainer"),
+    dateTextContainer: makeNodeComponent("dateTextContainer"),
     unstakeButton: makeNodeComponent("unstakeButton"),
     // Metadata about props expected for PlasmicStakeItem
     internalVariantProps: PlasmicStakeItem__VariantProps,

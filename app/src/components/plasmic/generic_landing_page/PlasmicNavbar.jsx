@@ -11,7 +11,6 @@
 import * as React from "react";
 import * as p from "@plasmicapp/react-web";
 import {
-  hasVariant,
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
@@ -100,14 +99,28 @@ function PlasmicNavbar__RenderFunc(props) {
             className={classNames("__wab_instance", sty.button___8XyGu)}
             color={"navLink"}
           >
-            {"Marketplace"}
+            {"Stake "}
           </Button>
 
           <Button
             className={classNames("__wab_instance", sty.button__nuYni)}
             color={"navLink"}
           >
-            {"How it works"}
+            {"Mint"}
+          </Button>
+
+          <Button
+            className={classNames("__wab_instance", sty.button__fAfMm)}
+            color={"navLink"}
+          >
+            {"Power"}
+          </Button>
+
+          <Button
+            className={classNames("__wab_instance", sty.button__olm0I)}
+            color={"navLink"}
+          >
+            {"Trade"}
           </Button>
 
           <Button
@@ -115,30 +128,6 @@ function PlasmicNavbar__RenderFunc(props) {
             color={"navLink"}
           >
             {"Community"}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__r5CAg, {
-              [sty.buttonauthState_auth__r5CAgxGd2]: hasVariant(
-                variants,
-                "authState",
-                "auth"
-              ),
-
-              [sty.buttonauthState_unauth__r5CAgEsYxN]: hasVariant(
-                variants,
-                "authState",
-                "unauth"
-              )
-            })}
-            color={"primary"}
-            round={true}
-          >
-            {hasVariant(variants, "authState", "auth")
-              ? "LOGOUT"
-              : hasVariant(variants, "authState", "unauth")
-              ? "SIGN IN"
-              : "Sign up"}
           </Button>
         </p.Stack>
 

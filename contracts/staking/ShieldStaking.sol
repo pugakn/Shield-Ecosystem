@@ -33,7 +33,6 @@ contract ShieldStaking is ReentrancyGuard, Pausable, Ownable {
   uint256 public stakeDuration = 5 minutes;
 
   //STORAGE
-  mapping(address => uint256) public rewards;
   uint256 public totalSupply;
 
   uint256 private _paymetPromiseId = 0;
@@ -68,8 +67,9 @@ contract ShieldStaking is ReentrancyGuard, Pausable, Ownable {
     _accountPaymentPromises[msg.sender].push(PaymentPromise(now.add(stakeDuration), amount));
 
     stakingToken.safeTransferFrom(msg.sender, address(this), amount);
+    rewardsToken.mint(msg.sender, amount);
     emit Staked(msg.sender, amount);
-    rewards[msg.sender] = rewards[msg.sender].add(amount.mul(rewardPerStakedToken));
+    emit ClaimedReward(msg.sender, amount.mul(rewardPerStakedToken));
   }
 
   function withdraw(uint256 id) external nonReentrant {
@@ -85,16 +85,6 @@ contract ShieldStaking is ReentrancyGuard, Pausable, Ownable {
     // Pending payments Id's will change, so client showld fetch the accountPaymentPromises again
     promises[id] = promises[promises.length - 1];
     promises.pop();
-  }
-
-  function claimReward(uint256 amount) external nonReentrant {
-    uint256 reward = rewards[msg.sender];
-    require(amount <= reward, "amount is greater than max reward");
-    if (reward > 0) {
-        rewards[msg.sender] = rewards[msg.sender].sub(amount);
-        rewardsToken.mint(msg.sender, amount);
-        emit ClaimedReward(msg.sender, amount);
-    }
   }
 
   /* ========== RESTRICTED FUNCTIONS ========== */

@@ -20,10 +20,11 @@ import Navbar from "../../Navbar"; // plasmic-import: 0gh3t-IoG53DF1/component
 import Button from "../../Button"; // plasmic-import: i6Jk8LEazvGVYD/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react"; // plasmic-import: BPNsJ2qis6/codeComponent
 import Section from "../../Section"; // plasmic-import: yvj2wkMAAxbuq/component
+import MarketItemList from "../../MarketItemList"; // plasmic-import: ubY-OV6QCB/component
 import StakeCard from "../../StakeCard"; // plasmic-import: L5_Xmsn3V7z/component
 import StakeList from "../../StakeList"; // plasmic-import: agZnPQYLHu/component
-import MarketItemList from "../../MarketItemList"; // plasmic-import: ubY-OV6QCB/component
 import FooterSection from "../../FooterSection"; // plasmic-import: ZPeZubRauiZV6n/component
+import PopUp from "../../PopUp"; // plasmic-import: 6B_96A4ymw/component
 import { useScreenVariants as useScreenVariantsjeKVrGjKUcgD } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JeKVrGjK-UcgD/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_generic_landing_page.module.css"; // plasmic-import: 32A6R5tEk8Q2nVvJmPnVbf/projectcss
@@ -51,6 +52,7 @@ function PlasmicHomePage__RenderFunc(props) {
             projectcss.all,
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             sty.root
           )}
@@ -127,9 +129,10 @@ function PlasmicHomePage__RenderFunc(props) {
                     className={classNames(projectcss.all, sty.freeBox__wVP)}
                   >
                     <Button
-                      data-plasmic-name={"button"}
-                      data-plasmic-override={overrides.button}
-                      className={classNames("__wab_instance", sty.button)}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button__xtI6E
+                      )}
                       color={"primary"}
                       round={true}
                     >
@@ -6344,6 +6347,83 @@ function PlasmicHomePage__RenderFunc(props) {
           </p.Stack>
 
           <Section
+            data-plasmic-name={"mintSection"}
+            data-plasmic-override={overrides.mintSection}
+            className={classNames("__wab_instance", sty.mintSection)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__n7Tps)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ud7S3
+                )}
+              >
+                {"Mint a new NFT"}
+              </div>
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__dF6G3
+                )}
+              >
+                {
+                  "Anyone can create it's own cool NFT, It could be an art piece, a videogame item, or anyother thing you could imagine. Try minting your own here."
+                }
+              </div>
+
+              <Button
+                data-plasmic-name={"mintButton"}
+                data-plasmic-override={overrides.mintButton}
+                className={classNames("__wab_instance", sty.mintButton)}
+                color={"primary"}
+                isDisabled={true}
+                round={true}
+              >
+                {"Mint"}
+              </Button>
+            </div>
+          </Section>
+
+          <Section
+            data-plasmic-name={"myNftSection"}
+            data-plasmic-override={overrides.myNftSection}
+            className={classNames("__wab_instance", sty.myNftSection)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__yjgY9)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___4C8Jg
+                )}
+              >
+                {"These are your NFTs"}
+              </div>
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__gmBbR
+                )}
+              >
+                {
+                  "Once you minted an NFT you own it, in order to sell it on the SHIELD market it must have some SHIELD power, the power represents the maximum price in SHIELD tokens for the NFT on the market, you can add power to any NFT you own by using FORGE tokens, go to the next section to get some."
+                }
+              </div>
+
+              <MarketItemList
+                data-plasmic-name={"myNftList"}
+                data-plasmic-override={overrides.myNftList}
+                className={classNames("__wab_instance", sty.myNftList)}
+              />
+            </div>
+          </Section>
+
+          <Section
             data-plasmic-name={"stakeSection"}
             data-plasmic-override={overrides.stakeSection}
             className={classNames("__wab_instance", sty.stakeSection)}
@@ -6359,6 +6439,40 @@ function PlasmicHomePage__RenderFunc(props) {
               >
                 {"Stake SHIELD"}
               </h2>
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sh7Ed
+                )}
+              >
+                {
+                  "You can get FORGE tokens by staking SHIELD tokens for a fixed period of time, Try staking some and go back to your NFTs to add power to them."
+                }
+              </div>
+
+              <div className={classNames(projectcss.all, sty.freeBox___79Ld0)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tVvAl
+                  )}
+                >
+                  {
+                    "If you dont have any SHIELD token to stake you can get some for free"
+                  }
+                </div>
+
+                <Button
+                  className={classNames("__wab_instance", sty.button__pAeHu)}
+                  color={"primary"}
+                  round={true}
+                >
+                  {"Get SHIELD"}
+                </Button>
+              </div>
 
               <p.Stack
                 as={"div"}
@@ -6401,6 +6515,18 @@ function PlasmicHomePage__RenderFunc(props) {
                 >
                   {"Marketplace"}
                 </h2>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__x97Nt
+                  )}
+                >
+                  {
+                    "This es the marketplace, here you can buy NFTs using SHIELD tokens, you can also see the ones thet you are selling, if you have not one on sell go to your NFTs and add it to the market."
+                  }
+                </div>
               </div>
 
               <div className={classNames(projectcss.all, sty.freeBox__to9Sr)}>
@@ -6418,6 +6544,14 @@ function PlasmicHomePage__RenderFunc(props) {
             data-plasmic-override={overrides.footerSection}
             className={classNames("__wab_instance", sty.footerSection)}
           />
+
+          {true ? (
+            <PopUp
+              data-plasmic-name={"mintPopUp"}
+              data-plasmic-override={overrides.mintPopUp}
+              className={classNames("__wab_instance", sty.mintPopUp)}
+            />
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -6430,27 +6564,35 @@ const PlasmicDescendants = {
     "navbar",
     "headerHeroSection",
     "columns",
-    "button",
     "lottie",
+    "mintSection",
+    "mintButton",
+    "myNftSection",
+    "myNftList",
     "stakeSection",
     "stakeCard",
     "stakeList",
     "marketItemsSection",
     "marketItemList",
-    "footerSection"
+    "footerSection",
+    "mintPopUp"
   ],
 
   navbar: ["navbar"],
-  headerHeroSection: ["headerHeroSection", "columns", "button", "lottie"],
-  columns: ["columns", "button", "lottie"],
-  button: ["button"],
+  headerHeroSection: ["headerHeroSection", "columns", "lottie"],
+  columns: ["columns", "lottie"],
   lottie: ["lottie"],
+  mintSection: ["mintSection", "mintButton"],
+  mintButton: ["mintButton"],
+  myNftSection: ["myNftSection", "myNftList"],
+  myNftList: ["myNftList"],
   stakeSection: ["stakeSection", "stakeCard", "stakeList"],
   stakeCard: ["stakeCard"],
   stakeList: ["stakeList"],
   marketItemsSection: ["marketItemsSection", "marketItemList"],
   marketItemList: ["marketItemList"],
-  footerSection: ["footerSection"]
+  footerSection: ["footerSection"],
+  mintPopUp: ["mintPopUp"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -6485,14 +6627,18 @@ export const PlasmicHomePage = Object.assign(
     navbar: makeNodeComponent("navbar"),
     headerHeroSection: makeNodeComponent("headerHeroSection"),
     columns: makeNodeComponent("columns"),
-    button: makeNodeComponent("button"),
     lottie: makeNodeComponent("lottie"),
+    mintSection: makeNodeComponent("mintSection"),
+    mintButton: makeNodeComponent("mintButton"),
+    myNftSection: makeNodeComponent("myNftSection"),
+    myNftList: makeNodeComponent("myNftList"),
     stakeSection: makeNodeComponent("stakeSection"),
     stakeCard: makeNodeComponent("stakeCard"),
     stakeList: makeNodeComponent("stakeList"),
     marketItemsSection: makeNodeComponent("marketItemsSection"),
     marketItemList: makeNodeComponent("marketItemList"),
     footerSection: makeNodeComponent("footerSection"),
+    mintPopUp: makeNodeComponent("mintPopUp"),
     // Metadata about props expected for PlasmicHomePage
     internalVariantProps: PlasmicHomePage__VariantProps,
     internalArgProps: PlasmicHomePage__ArgProps

@@ -18,7 +18,10 @@ function Section_(props, ref) {
   //
   // By default, we are just piping all SectionProps here, but feel free
   // to do whatever works for you.
-  return <PlasmicSection root={{ ref }} {...props} />;
+  return <PlasmicSection 
+  root={{ ref }} 
+  {...props} 
+  />;
 }
 
 const Section = React.forwardRef(Section_);

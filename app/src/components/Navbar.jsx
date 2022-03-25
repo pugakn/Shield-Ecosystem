@@ -11,7 +11,7 @@ function Navbar_(props, ref) {
     const shieldKey = drizzleContext.drizzle.contracts.ShieldToken.methods['balanceOf'].cacheCall(account);
     const forgeKey = drizzleContext.drizzle.contracts.ForgeToken.methods['balanceOf'].cacheCall(account);
     setDataKeys({shield: shieldKey, forge: forgeKey});
-  }, []);
+  }, [account, drizzleContext.drizzle.contracts.ForgeToken.methods, drizzleContext.drizzle.contracts.ShieldToken.methods]);
 
   return <PlasmicNavbar 
     shieldText={`SHIELD: ${shieldAmount/100}`}

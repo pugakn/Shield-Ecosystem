@@ -25,7 +25,7 @@ function StakeCard_(props, ref) {
     approve: !allowanceAmount
   }}
   approveButton= {{
-    disabled: !amount,
+    isDisabled: !amount,
     onClick: () => {
       try {
         if (!allowanceAmount) {

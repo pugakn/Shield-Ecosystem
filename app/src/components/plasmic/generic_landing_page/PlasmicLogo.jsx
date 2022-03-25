@@ -38,6 +38,7 @@ function PlasmicLogo__RenderFunc(props) {
         projectcss.a,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         sty.root,
         { [sty.root_50Opaque]: hasVariant(variants, "_50Opaque", "_50Opaque") }

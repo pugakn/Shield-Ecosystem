@@ -436,6 +436,19 @@
           "cssFilePath": "plasmic/shield_ecosystem_app/PlasmicNftMintWidget.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "6B_96A4ymw",
+          "name": "PopUp",
+          "type": "managed",
+          "projectId": "32A6R5tEk8Q2nVvJmPnVbf",
+          "renderModuleFilePath": "plasmic/shield_ecosystem_app/PlasmicPopUp.jsx",
+          "importSpec": {
+            "modulePath": "PopUp.jsx"
+          },
+          "cssFilePath": "plasmic/shield_ecosystem_app/PlasmicPopUp.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -625,6 +638,16 @@
           "id": "pSMBo5aRfAqEz",
           "name": "meeting",
           "filePath": "plasmic/generic_landing_page/images/meeting.jpeg"
+        },
+        {
+          "id": "khfxbCgT4",
+          "name": "descarga (1).png",
+          "filePath": "plasmic/shield_ecosystem_app/images/descarga1Png.png"
+        },
+        {
+          "id": "P8lQZOkqL",
+          "name": "Upload-PNG-Images.png",
+          "filePath": "plasmic/shield_ecosystem_app/images/uploadPngImagespng.png"
         }
       ],
       "indirect": false,

@@ -20,6 +20,7 @@ import Button from "../../Button"; // plasmic-import: i6Jk8LEazvGVYD/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "../generic_landing_page/plasmic_generic_landing_page.module.css"; // plasmic-import: 32A6R5tEk8Q2nVvJmPnVbf/projectcss
 import sty from "./PlasmicNftMintWidget.module.css"; // plasmic-import: yv-K2ZiTgV/css
+import uploadPngImagespngP8LQzOkqL from "./images/uploadPngImagespng.png"; // plasmic-import: P8lQZOkqL/picture
 
 export const PlasmicNftMintWidget__VariantProps = new Array();
 
@@ -39,35 +40,42 @@ function PlasmicNftMintWidget__RenderFunc(props) {
         projectcss.all,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         sty.root
       )}
     >
       <p.PlasmicImg
-        data-plasmic-name={"img"}
-        data-plasmic-override={overrides.img}
+        data-plasmic-name={"imageInput"}
+        data-plasmic-override={overrides.imageInput}
         alt={""}
-        className={classNames(sty.img)}
-        displayHeight={"auto"}
+        className={classNames(sty.imageInput)}
+        displayHeight={"200px"}
         displayMaxHeight={"none"}
         displayMaxWidth={"100%"}
         displayMinHeight={"0"}
         displayMinWidth={"0"}
-        displayWidth={"155px"}
+        displayWidth={"200px"}
         loading={"lazy"}
+        src={{
+          src: uploadPngImagespngP8LQzOkqL,
+          fullWidth: 512,
+          fullHeight: 512,
+          aspectRatio: undefined
+        }}
       />
 
       <TextInput
-        data-plasmic-name={"textInput"}
-        data-plasmic-override={overrides.textInput}
-        className={classNames("__wab_instance", sty.textInput)}
+        data-plasmic-name={"titleInput"}
+        data-plasmic-override={overrides.titleInput}
+        className={classNames("__wab_instance", sty.titleInput)}
         placeholder={"Title..."}
       />
 
       <Button
-        data-plasmic-name={"button"}
-        data-plasmic-override={overrides.button}
-        className={classNames("__wab_instance", sty.button)}
+        data-plasmic-name={"mintButton"}
+        data-plasmic-override={overrides.mintButton}
+        className={classNames("__wab_instance", sty.mintButton)}
         color={"primary"}
         round={true}
       >
@@ -78,10 +86,10 @@ function PlasmicNftMintWidget__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "textInput", "textbox", "button"],
-  img: ["img"],
-  textInput: ["textInput", "textbox"],
-  button: ["button"]
+  root: ["root", "imageInput", "titleInput", "mintButton"],
+  imageInput: ["imageInput"],
+  titleInput: ["titleInput"],
+  mintButton: ["mintButton"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -113,9 +121,9 @@ export const PlasmicNftMintWidget = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
-    textInput: makeNodeComponent("textInput"),
-    button: makeNodeComponent("button"),
+    imageInput: makeNodeComponent("imageInput"),
+    titleInput: makeNodeComponent("titleInput"),
+    mintButton: makeNodeComponent("mintButton"),
     // Metadata about props expected for PlasmicNftMintWidget
     internalVariantProps: PlasmicNftMintWidget__VariantProps,
     internalArgProps: PlasmicNftMintWidget__ArgProps

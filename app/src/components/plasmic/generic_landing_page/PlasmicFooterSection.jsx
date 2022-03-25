@@ -17,7 +17,6 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import Logo from "../../Logo"; // plasmic-import: tm91OI3WBC-gJR/component
-import Button from "../../Button"; // plasmic-import: i6Jk8LEazvGVYD/component
 import { useScreenVariants as useScreenVariantsjeKVrGjKUcgD } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JeKVrGjK-UcgD/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_generic_landing_page.module.css"; // plasmic-import: 32A6R5tEk8Q2nVvJmPnVbf/projectcss
@@ -46,6 +45,7 @@ function PlasmicFooterSection__RenderFunc(props) {
         projectcss.all,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         sty.root
       )}
@@ -72,10 +72,12 @@ function PlasmicFooterSection__RenderFunc(props) {
             className={classNames(projectcss.all, sty.freeBox___332D)}
           >
             <div
+              data-plasmic-name={"text"}
+              data-plasmic-override={overrides.text}
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__rr67S
+                sty.text
               )}
             >
               {"Connect with us"}
@@ -103,182 +105,15 @@ function PlasmicFooterSection__RenderFunc(props) {
             </p.Stack>
           </p.Stack>
         </p.Stack>
-
-        <p.Stack
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__iobf)}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__j6GyZ
-            )}
-          >
-            {"Product"}
-          </div>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__iz9Bl)}
-            color={"navLink"}
-            flat={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__aP2C8
-              )}
-            >
-              {"Pricing"}
-            </div>
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button___3QbmT)}
-            color={"navLink"}
-            flat={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xBZui
-              )}
-            >
-              {"Log in"}
-            </div>
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__iWojF)}
-            color={"navLink"}
-            flat={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___8SCkL
-              )}
-            >
-              {"Integrations"}
-            </div>
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__ziA1L)}
-            color={"navLink"}
-            flat={true}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xJlyI
-              )}
-            >
-              {"Insights"}
-            </div>
-          </Button>
-        </p.Stack>
-
-        <p.Stack
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox___87QHd)}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__dIaIw
-            )}
-          >
-            {"Support"}
-          </div>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__xefaJ)}
-            color={"navLink"}
-            flat={true}
-          >
-            {"Documentation"}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button___50ZZr)}
-            color={"navLink"}
-            flat={true}
-          >
-            {"FAQs"}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__aLErQ)}
-            color={"navLink"}
-            flat={true}
-          >
-            {"Status"}
-          </Button>
-        </p.Stack>
-
-        <p.Stack
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__dcmH1)}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__jfiBh
-            )}
-          >
-            {"Company"}
-          </div>
-
-          <Button
-            className={classNames("__wab_instance", sty.button___8GuUa)}
-            color={"navLink"}
-            flat={true}
-          >
-            {"About"}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__tavWb)}
-            color={"navLink"}
-            flat={true}
-          >
-            {"Contact us"}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__mQjKn)}
-            color={"navLink"}
-            flat={true}
-          >
-            {"Careers"}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__ypkGe)}
-            color={"navLink"}
-            flat={true}
-          >
-            {"Media"}
-          </Button>
-        </p.Stack>
       </p.Stack>
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "logo"],
-  logo: ["logo"]
+  root: ["root", "logo", "text"],
+  logo: ["logo"],
+  text: ["text"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -311,6 +146,7 @@ export const PlasmicFooterSection = Object.assign(
   {
     // Helper components rendering sub-elements
     logo: makeNodeComponent("logo"),
+    text: makeNodeComponent("text"),
     // Metadata about props expected for PlasmicFooterSection
     internalVariantProps: PlasmicFooterSection__VariantProps,
     internalArgProps: PlasmicFooterSection__ArgProps

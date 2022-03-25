@@ -1,8 +1,10 @@
 .root {
   position: relative;
-  transition-property: all;
+  transition-property: transform;
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
+  transform: translateX(0px) translateY(0px) translateZ(0px);
+  cursor: pointer;
   padding: 8px 24px;
   border-width: 0px;
 }
@@ -25,14 +27,15 @@
 .rootround {
   padding-left: 20px;
   padding-right: 20px;
-  border-radius: 24px;
+  border-radius: 10px;
 }
 .rootflat {
   padding: 0px;
 }
-.rootdisabled {
-  cursor: not-allowed;
+.rootisDisabled {
+  cursor: default;
   opacity: 0.5;
+  pointer-events: none;
 }
 .rootcolor_primary {
   background: var(--token-gjjD1RnSBjqj8);
@@ -61,8 +64,13 @@
 .rootcolor_secondary:hover {
   background: #40e569;
 }
+.rootisDisabled:hover {
+  transform: scaleX(1) scaleY(1) scaleZ(1);
+}
 .rootcolor_primary:hover {
-  background: #40e569;
+  background: var(--token-gjjD1RnSBjqj8);
+  transform: scaleX(1.1) scaleY(1.1) scaleZ(1) translateX(0px) translateY(0px)
+    translateZ(0px);
 }
 .rootcolor_primaryDark:hover {
   background: #1a88ff;
@@ -72,6 +80,11 @@
 }
 .rootcolor_darkGray:hover {
   background: var(--token-uq1fyr6cjQrqd);
+}
+.rootcolor_primary_isDisabled:hover {
+  transform: scaleX(1) scaleY(1) scaleZ(1) translateX(0px) translateY(0px)
+    translateZ(0px);
+  pointer-events: none;
 }
 .root:focus {
   outline: none;

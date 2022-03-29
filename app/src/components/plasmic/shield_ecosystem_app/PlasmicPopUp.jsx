@@ -22,7 +22,7 @@ import sty from "./PlasmicPopUp.module.css"; // plasmic-import: 6B_96A4ymw/css
 
 export const PlasmicPopUp__VariantProps = new Array();
 
-export const PlasmicPopUp__ArgProps = new Array("children");
+export const PlasmicPopUp__ArgProps = new Array("popUpContent");
 
 function PlasmicPopUp__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -48,7 +48,7 @@ function PlasmicPopUp__RenderFunc(props) {
           />
         ),
 
-        value: args.children
+        value: args.popUpContent
       })}
     </div>
   ) : null;

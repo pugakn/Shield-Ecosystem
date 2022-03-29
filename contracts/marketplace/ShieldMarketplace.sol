@@ -81,11 +81,7 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
   function addNFT(uint256 contractTokenId, uint256 price) external nonReentrant {
     require(price > 0, "Price must be more than 0");
     uint256 currentShieldValue = shieldNFTContract.tokenShieldValue(contractTokenId);
-    uint256 missingForgeAmount = price.sub(currentShieldValue);
-
-    if (missingForgeAmount > 0) {
-      require(forgeTokenContract.balanceOf(msg.sender) >= missingForgeAmount, "Need more shield");
-    }
+    require(currentShieldValue >= price, "Need more shield");
 
     uint256 itemId = _marketItemId.current();
     _marketItemId.increment();
@@ -99,16 +95,13 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
     );
 
     shieldNFTContract.safeTransferFrom(msg.sender, address(this), contractTokenId);
-
-    if (price > currentShieldValue) {
-      shieldNFTContract.setTokenShieldValue(contractTokenId, price);
-    }
-
-    forgeTokenContract.safeTransferFrom(msg.sender, address(this), price);
   }
 
   function setPrice(uint256 id, uint256 price) external {
+    require(price > 0, "Price must be more than 0");
     ShieldMarketItem storage item = _idToMarketItem[id];
+    uint256 currentShieldValue = shieldNFTContract.tokenShieldValue(item.contractTokenId);
+    require(currentShieldValue >= price, "Need more shield");
     item.price = price;
   }
 

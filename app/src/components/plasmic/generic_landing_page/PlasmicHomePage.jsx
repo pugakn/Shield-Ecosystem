@@ -129,10 +129,9 @@ function PlasmicHomePage__RenderFunc(props) {
                     className={classNames(projectcss.all, sty.freeBox__wVP)}
                   >
                     <Button
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__xtI6E
-                      )}
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
                       color={"primary"}
                       round={true}
                     >
@@ -6466,7 +6465,9 @@ function PlasmicHomePage__RenderFunc(props) {
                 </div>
 
                 <Button
-                  className={classNames("__wab_instance", sty.button__pAeHu)}
+                  data-plasmic-name={"getShieldButton"}
+                  data-plasmic-override={overrides.getShieldButton}
+                  className={classNames("__wab_instance", sty.getShieldButton)}
                   color={"primary"}
                   round={true}
                 >
@@ -6564,12 +6565,14 @@ const PlasmicDescendants = {
     "navbar",
     "headerHeroSection",
     "columns",
+    "button",
     "lottie",
     "mintSection",
     "mintButton",
     "myNftSection",
     "myNftList",
     "stakeSection",
+    "getShieldButton",
     "stakeCard",
     "stakeList",
     "marketItemsSection",
@@ -6579,14 +6582,16 @@ const PlasmicDescendants = {
   ],
 
   navbar: ["navbar"],
-  headerHeroSection: ["headerHeroSection", "columns", "lottie"],
-  columns: ["columns", "lottie"],
+  headerHeroSection: ["headerHeroSection", "columns", "button", "lottie"],
+  columns: ["columns", "button", "lottie"],
+  button: ["button"],
   lottie: ["lottie"],
   mintSection: ["mintSection", "mintButton"],
   mintButton: ["mintButton"],
   myNftSection: ["myNftSection", "myNftList"],
   myNftList: ["myNftList"],
-  stakeSection: ["stakeSection", "stakeCard", "stakeList"],
+  stakeSection: ["stakeSection", "getShieldButton", "stakeCard", "stakeList"],
+  getShieldButton: ["getShieldButton"],
   stakeCard: ["stakeCard"],
   stakeList: ["stakeList"],
   marketItemsSection: ["marketItemsSection", "marketItemList"],
@@ -6627,12 +6632,14 @@ export const PlasmicHomePage = Object.assign(
     navbar: makeNodeComponent("navbar"),
     headerHeroSection: makeNodeComponent("headerHeroSection"),
     columns: makeNodeComponent("columns"),
+    button: makeNodeComponent("button"),
     lottie: makeNodeComponent("lottie"),
     mintSection: makeNodeComponent("mintSection"),
     mintButton: makeNodeComponent("mintButton"),
     myNftSection: makeNodeComponent("myNftSection"),
     myNftList: makeNodeComponent("myNftList"),
     stakeSection: makeNodeComponent("stakeSection"),
+    getShieldButton: makeNodeComponent("getShieldButton"),
     stakeCard: makeNodeComponent("stakeCard"),
     stakeList: makeNodeComponent("stakeList"),
     marketItemsSection: makeNodeComponent("marketItemsSection"),

@@ -7,10 +7,11 @@
   background: var(--token-XcOYQB0kZaqAb);
   position: relative;
   min-width: 267px;
-  min-height: 400px;
-  max-height: 400px;
+  min-height: 410px;
+  max-height: 410px;
   justify-content: flex-start;
   align-items: center;
+  height: 423px;
   border-radius: 16px;
   padding: 16px;
 }
@@ -190,7 +191,7 @@
   margin-top: 12px;
   margin-bottom: 8px;
   min-width: 0;
-  padding: 8px;
+  padding: 0px 8px 8px;
 }
 .freeBoxprofile__fgpKwWvqJp {
   justify-content: center;
@@ -216,9 +217,11 @@
   position: relative;
   text-align: left;
   margin-top: 0px;
+  cursor: pointer;
 }
 .removeButtonprofile {
   margin-top: 0px;
+  cursor: pointer;
 }
 .removeButtontype_dynamic {
   margin-top: 0px;
@@ -240,7 +243,8 @@
   margin-top: 8px;
 }
 .sellButtonprofile {
-  margin: 0px;
+  cursor: pointer;
+  margin: 5px 0px 0px;
 }
 .sellButtontype_dynamic {
   margin: 0px;

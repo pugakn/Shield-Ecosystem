@@ -266,13 +266,13 @@ function PlasmicMarketItemCard__RenderFunc(props) {
         })}
       >
         {(hasVariant(variants, "type", "_static") ? true : true) ? (
-          <a
+          <button
             data-plasmic-name={"removeButton"}
             data-plasmic-override={overrides.removeButton}
             aria-label={""}
             className={classNames(
               projectcss.all,
-              projectcss.a,
+              projectcss.button,
               projectcss.__wab_text,
               sty.removeButton,
               {
@@ -301,7 +301,6 @@ function PlasmicMarketItemCard__RenderFunc(props) {
                 )
               }
             )}
-            href={"https://www.plasmic.app/"}
             id={""}
             role={""}
           >
@@ -314,7 +313,7 @@ function PlasmicMarketItemCard__RenderFunc(props) {
               : hasVariant(variants, "profile", "profile")
               ? "Add SHIELD Power"
               : "Buy now: 500000 SHIELD"}
-          </a>
+          </button>
         ) : null}
         {(
           hasVariant(variants, "type", "onSale")
@@ -327,12 +326,12 @@ function PlasmicMarketItemCard__RenderFunc(props) {
             ? true
             : false
         ) ? (
-          <a
+          <button
             data-plasmic-name={"sellButton"}
             data-plasmic-override={overrides.sellButton}
             className={classNames(
               projectcss.all,
-              projectcss.a,
+              projectcss.button,
               projectcss.__wab_text,
               sty.sellButton,
               {
@@ -361,7 +360,6 @@ function PlasmicMarketItemCard__RenderFunc(props) {
                 )
               }
             )}
-            href={"https://www.plasmic.app/"}
           >
             {hasVariant(variants, "type", "onSale")
               ? "SELL"
@@ -372,7 +370,7 @@ function PlasmicMarketItemCard__RenderFunc(props) {
               : hasVariant(variants, "profile", "profile")
               ? "SELL"
               : "Buy now: 500000 SHIELD"}
-          </a>
+          </button>
         ) : null}
       </div>
     </div>

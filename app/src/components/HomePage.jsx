@@ -1,8 +1,12 @@
 import * as React from "react";
 import { PlasmicHomePage } from "./plasmic/generic_landing_page/PlasmicHomePage";
 import { DrizzleContext } from "@drizzle/react-plugin";
+import MarketItemCard from "./MarketItemCard";
+import NftMintWidget from "./NftMintWidget";
 
 function HomePage_(props, ref) {
+  const [showMintPopUp, setShowMintPopUp] = React.useState(false);
+
 
   const drizzleContext = React.useContext(DrizzleContext.Context);
   const [dataKeys, setDataKeys] = React.useState({});
@@ -16,7 +20,6 @@ function HomePage_(props, ref) {
     const balanceOf = nftContract.methods['balanceOf'].cacheCall(account);
     const numberAccountNFT = drizzleContext.drizzleState.contracts.ShieldNFT.balanceOf[balanceOf]?.value;
     let myNFTList = [];
-    console.log('numberAccountNFT',balanceOf, numberAccountNFT);
     for (let index = 0; index < numberAccountNFT; index++) {
       const myNFTItem = nftContract.methods['tokenOfOwnerByIndex'].cacheCall(account, index);
       myNFTList.push(myNFTItem);
@@ -27,23 +30,33 @@ function HomePage_(props, ref) {
   const numberAccountNFT = drizzleContext.drizzleState.contracts.ShieldNFT.balanceOf[dataKeys.balanceOf]?.value;
   let myNFTList = [];
   for (let index = 0; index < numberAccountNFT; index++) {
-    const myNFTItem = drizzleContext.drizzleState.contracts.ShieldNFT.tokenOfOwnerByIndex[dataKeys.myNFTList[index]]?.value || [];
+    const myNFTItem = drizzleContext.drizzleState.contracts.ShieldNFT.tokenOfOwnerByIndex[dataKeys.myNFTList[index]]?.value;
     myNFTList.push(myNFTItem);
   }
-  console.log('waaaa',numberAccountNFT, myNFTList, drizzleContext);
 
   return <PlasmicHomePage 
   mintPopUp= {{ 
-    isVisible:true
+    isVisible:showMintPopUp,
+    onClick: () => {
+      setShowMintPopUp(false);
+    },
+    popUpContent: <NftMintWidget onSubmit={()=> setShowMintPopUp()}/>
   }}
   mintButton={{ 
     isDisabled: false,
     onClick: () => {
-      console.log("mint button clicked");
+      setShowMintPopUp(true);
+    }
+  }}
+  getShieldButton={{
+    onClick: (event) => {
+      drizzle.contracts.ShieldTokenFreeDrop.methods['getDrop'].cacheSend();
     }
   }}
   myNftList={{
-    children: []
+    children: myNFTList.map((item, index) => {
+      return <MarketItemCard key={index} profile={true} itemId={item}/>
+    })
   }}
   root={{ ref }} 
   {...props} 

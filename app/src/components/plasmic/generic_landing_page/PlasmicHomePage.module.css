@@ -221,7 +221,7 @@
   > img {
   margin-left: 16px;
 }
-.button__xtI6E:global(.__wab_instance) {
+.button:global(.__wab_instance) {
   position: relative;
 }
 .svg__uqrNh {
@@ -400,7 +400,7 @@
   max-width: 800px;
   margin-right: 35px;
 }
-.button__pAeHu:global(.__wab_instance) {
+.getShieldButton:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }

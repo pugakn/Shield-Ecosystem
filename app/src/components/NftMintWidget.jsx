@@ -3,6 +3,7 @@ import { PlasmicNftMintWidget } from "./plasmic/shield_ecosystem_app/PlasmicNftM
 import { DrizzleContext } from "@drizzle/react-plugin";
 
 function NftMintWidget_(props, ref) {
+  const { onSubmit, ...rest} = props;
   const [title, setTitle] = React.useState("");
 
   const drizzleContext = React.useContext(DrizzleContext.Context);
@@ -16,12 +17,17 @@ function NftMintWidget_(props, ref) {
     } 
   }}
   mintButton={{ 
-    onClick: (event) => {
-      nftContract.methods['shieldMint'].cacheSend('');
+    onClick: async (event) => {
+      await nftContract.methods['shieldMint'].cacheSend('');
+      onSubmit();
     }
   }}
-  root={{ ref }} 
-  {...props} 
+  root={{ 
+    onClick: (event) => {
+      event.stopPropagation();
+    }
+  }} 
+  {...rest} 
   />;
 }
 

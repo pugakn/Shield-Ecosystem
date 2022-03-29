@@ -1,6 +1,7 @@
 import Web3 from "web3";
 import ShieldStaking from "./contracts/ShieldStaking.json";
 import ShieldToken from "./contracts/ShieldToken.json";
+import ShieldTokenFreeDrop from "./contracts/ShieldTokenFreeDrop.json";
 import ForgeToken from "./contracts/ForgeToken.json";
 import ShieldNFT from "./contracts/ShieldNFT.json";
 import ShieldMarketplace from "./contracts/ShieldMarketplace.json";
@@ -10,7 +11,7 @@ const options = {
     block: false,
     customProvider: new Web3(Web3.givenProvider || "ws://localhost:7545"),
   },
-  contracts: [ShieldMarketplace, ShieldNFT, ForgeToken, ShieldToken, ShieldStaking],
+  contracts: [ShieldMarketplace, ShieldNFT, ForgeToken, ShieldToken, ShieldStaking, ShieldTokenFreeDrop],
   // events: {
   //   SimpleStorage: ["StorageSet"],
   // },

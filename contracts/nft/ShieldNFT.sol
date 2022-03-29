@@ -3,16 +3,25 @@ pragma solidity >=0.4.21 <0.7.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721Full.sol";
 import "@openzeppelin/contracts/drafts/Counters.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
+
 import "../interfaces/IERC721Shield.sol";
 
 contract ShieldNFT is ERC721Full, IERC721Shield {
   using Counters for Counters.Counter;
+  using SafeMath for uint256;
+  using SafeERC20 for IERC20;
+
+  IERC20 public forgeTokenContract;
   Counters.Counter private _tokenIds;
 
    mapping(uint256 => uint256) private _tokenShieldValue;
    mapping(uint256 => address) private _tokenCreator;
 
-  constructor() ERC721Full("ShieldNFT", "SNFT") public {
+  constructor(address _forgeTokenContract) ERC721Full("ShieldNFT", "SNFT") public {
+    forgeTokenContract = IERC20(_forgeTokenContract);
   }
 
   function tokenShieldValue(uint256 tokenId) external view returns (uint256) {
@@ -34,8 +43,8 @@ contract ShieldNFT is ERC721Full, IERC721Shield {
       return newItemId;
   }
 
-  function setTokenShieldValue(uint256 tokenId, uint256 shieldValue) external {
-    _setTokenShieldValue(tokenId, shieldValue);
+  function addTokenShieldValue(uint256 tokenId, uint256 shieldValue) external {
+    _addTokenShieldValue(tokenId, shieldValue);
   }
 
   function _setTokenCreator(uint256 tokenId, address account) internal{
@@ -43,9 +52,10 @@ contract ShieldNFT is ERC721Full, IERC721Shield {
     _tokenCreator[tokenId] = account;
   }
 
-  function _setTokenShieldValue(uint256 tokenId, uint256 shieldValue) internal {
-    require(_exists(tokenId), "_setTokenShieldValue: set of nonexistent token");
-    _tokenShieldValue[tokenId] = shieldValue;
+  function _addTokenShieldValue(uint256 tokenId, uint256 shieldValue) internal {
+    require(_exists(tokenId), "_addTokenShieldValue: set of nonexistent token");
+    forgeTokenContract.safeTransferFrom(msg.sender, address(this), shieldValue);
+    _tokenShieldValue[tokenId] = _tokenShieldValue[tokenId].add(shieldValue);
   }
 
 }

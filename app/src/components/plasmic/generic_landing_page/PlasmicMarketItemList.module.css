@@ -9,9 +9,9 @@
 .root > :global(.__wab_flex-container) {
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: stretch;
-  align-content: center;
+  align-content: flex-start;
   margin-left: calc(0px - 25px);
   width: calc(100% + 25px);
   margin-top: calc(0px - 25px);

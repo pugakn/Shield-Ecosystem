@@ -19,16 +19,15 @@ function StakeCard_(props, ref) {
 
   const maxAllowance = '115792089237316195423570985008687907853269984665640564039457584007913129639935';
   const allowanceAmount = drizzleContext.drizzleState.contracts.ShieldToken.allowance[dataKeys.allowance]?.value;
-
   return <PlasmicStakeCard 
   variants= {{ 
-    approve: !allowanceAmount
+    approve: allowanceAmount == 0
   }}
   approveButton= {{
-    isDisabled: !amount,
+    isDisabled: !amount && (allowanceAmount != 0),
     onClick: () => {
       try {
-        if (!allowanceAmount) {
+        if (allowanceAmount == 0) {
           shieldContract.methods['approve'].cacheSend(stakingContract.address, maxAllowance);
         } else {
           stakingContract.methods['stake'].cacheSend(amount*100);

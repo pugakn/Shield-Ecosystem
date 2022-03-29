@@ -3,8 +3,12 @@ import { PlasmicPopUp } from "./plasmic/shield_ecosystem_app/PlasmicPopUp";
 
 function PopUp_(props, ref) {
   const {isVisible, ...rest} = props
-  return <PlasmicPopUp 
-  root={{style:{display: isVisible ? 'flex' : 'none'}}} 
+  return <PlasmicPopUp   
+  root={
+    { 
+      props: {style:{display: isVisible ? 'flex' : 'none'}},
+    }
+  } 
   {...rest} 
   />;
 }

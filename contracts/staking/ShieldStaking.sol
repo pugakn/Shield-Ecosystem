@@ -49,7 +49,6 @@ contract ShieldStaking is ReentrancyGuard, Pausable, Ownable {
   }
 
   /* ========== VIEWS ========== */
-
   function accountPaymentPromises(address account, uint256 id) external view returns(PaymentPromise memory) {
     return _accountPaymentPromises[account][id];
   }
@@ -59,7 +58,6 @@ contract ShieldStaking is ReentrancyGuard, Pausable, Ownable {
   }
 
   /* ========== MUTATIVE FUNCTIONS ========== */
-
   function stake(uint256 amount) external nonReentrant whenNotPaused {
     require(amount > 0, "Cannot stake 0");
     totalSupply = totalSupply.add(amount);
@@ -82,7 +80,7 @@ contract ShieldStaking is ReentrancyGuard, Pausable, Ownable {
     emit Withdrawn(msg.sender,  payment.amount);
 
     // Delete payment promise
-    // Pending payments Id's will change, so client showld fetch the accountPaymentPromises again
+    // Pending payments Id's will change, so client should fetch the accountPaymentPromises again
     promises[id] = promises[promises.length - 1];
     promises.pop();
   }
@@ -115,7 +113,6 @@ contract ShieldStaking is ReentrancyGuard, Pausable, Ownable {
   event Staked(address indexed user, uint256 amount);
   event Withdrawn(address indexed user, uint256 amount);
   event ClaimedReward(address indexed user, uint256 reward);
-
   event StakeDurationUpdated(uint256 newDuration);
   event RewardPerStakedTokenUpdated(uint256 newDuration);
 }

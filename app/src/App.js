@@ -2,30 +2,6 @@ import React from "react";
 import { DrizzleContext } from "@drizzle/react-plugin";
 import { Drizzle } from "@drizzle/store";
 import drizzleOptions from "./drizzleOptions";
-// import MyComponent from "./MyComponent";
-// import "./App.css";
-// const App = () => {
-  //   return (
-    //     <DrizzleContext.Provider drizzle={drizzle}>
-    //       <DrizzleContext.Consumer>
-    //         {drizzleContext => {
-      //           const { drizzle, drizzleState, initialized } = drizzleContext;
-      //           if (!initialized) {
-        //             return "Loading..."
-        //           }
-        //           return (
-          //             <MyComponent drizzle={drizzle} drizzleState={drizzleState} />
-          //           )
-          //         }}
-          //       </DrizzleContext.Consumer>
-//     </DrizzleContext.Provider>
-//   );
-// }
-// export default App;
-
-import {
-  PlasmicRootProvider
-} from '@plasmicapp/loader-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // COMPONENTS
@@ -35,13 +11,12 @@ const drizzle = new Drizzle(drizzleOptions);
 
 function AppRoot() {
   return (
-    // <PlasmicRootProvider>
     <DrizzleContext.Provider drizzle={drizzle}>
        <DrizzleContext.Consumer>
          {drizzleContext => {
            const { drizzle, drizzleState, initialized } = drizzleContext;
            if (!initialized) {
-             return "Loading..."
+             return "Please connect using metamask."
            }
            return (
             <Router>
@@ -54,7 +29,6 @@ function AppRoot() {
          }}
        </DrizzleContext.Consumer>
     </DrizzleContext.Provider>
-    // </PlasmicRootProvider>
   );
 }
 

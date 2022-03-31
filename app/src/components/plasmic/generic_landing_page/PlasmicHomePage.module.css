@@ -526,7 +526,7 @@
   min-height: 0;
   padding: 0px;
 }
-.marketItemList:global(.__wab_instance) {
+.marketNftList:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   width: 100%;
@@ -545,6 +545,30 @@
   display: none;
 }
 .nftMintWidget__eWrHb:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.addShieldPopUp:global(.__wab_instance) {
+  position: fixed;
+  top: 0vh;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: none;
+}
+.nftAddShieldWidget:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.sellPopUp:global(.__wab_instance) {
+  position: fixed;
+  top: 0vh;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: none;
+}
+.nftSellWidget:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }

@@ -12,9 +12,10 @@ const options = {
     customProvider: new Web3(Web3.givenProvider || "ws://localhost:7545"),
   },
   contracts: [ShieldMarketplace, ShieldNFT, ForgeToken, ShieldToken, ShieldStaking, ShieldTokenFreeDrop],
-  // events: {
-  //   SimpleStorage: ["StorageSet"],
-  // },
+  syncAlways: true,
+  events: {
+    ShieldToken: ["Transfer"],
+  },
 };
 
 export default options;

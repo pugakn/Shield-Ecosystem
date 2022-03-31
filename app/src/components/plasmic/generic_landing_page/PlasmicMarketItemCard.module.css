@@ -126,14 +126,14 @@
   position: relative;
   width: auto;
   height: auto;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   align-self: center;
   text-align: center;
 }
 .shieldLabel:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  align-self: flex-start;
+  align-self: center;
 }
 .freeBox__rdnr8 {
   flex-direction: column;
@@ -210,28 +210,52 @@
   align-items: flex-end;
 }
 .removeButton {
-  font-family: "Advent Pro", sans-serif;
-  font-size: var(--token-pGM6kN_go);
-  font-weight: 600;
-  color: var(--token-Se0f4L5T10wDU);
   position: relative;
-  text-align: left;
   margin-top: 0px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
 }
 .removeButtonprofile {
   margin-top: 0px;
   cursor: pointer;
+  justify-content: center;
 }
 .removeButtontype_dynamic {
   margin-top: 0px;
+  justify-content: center;
 }
 .removeButtontype__static {
   margin-top: 0px;
+  justify-content: center;
   display: none;
 }
 .removeButtontype_onSale {
   margin-top: 0px;
+  justify-content: center;
+}
+.freeBox__rylO3 {
+  display: flex;
+  position: relative;
+}
+.slotTargetChildren {
+  font-family: "Advent Pro", sans-serif;
+  font-size: var(--token-pGM6kN_go);
+  font-weight: 600;
+  color: var(--token-Se0f4L5T10wDU);
+  text-align: center;
+}
+.slotTargetChildrenprofile {
+  text-align: center;
+}
+.slotTargetChildrentype_dynamic {
+  text-align: center;
+}
+.slotTargetChildrentype__static {
+  text-align: center;
+}
+.slotTargetChildrentype_onSale {
+  text-align: center;
 }
 .sellButton {
   font-family: "Advent Pro", sans-serif;

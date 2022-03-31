@@ -667,27 +667,14 @@ function PlasmicShieldLabel__RenderFunc(props) {
       >
         {"50000"}
       </div>
-
-      <div
-        data-plasmic-name={"typeText"}
-        data-plasmic-override={overrides.typeText}
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.typeText
-        )}
-      >
-        {"DYNAMIC"}
-      </div>
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "lottie", "amountText", "typeText"],
+  root: ["root", "lottie", "amountText"],
   lottie: ["lottie"],
-  amountText: ["amountText"],
-  typeText: ["typeText"]
+  amountText: ["amountText"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -721,7 +708,6 @@ export const PlasmicShieldLabel = Object.assign(
     // Helper components rendering sub-elements
     lottie: makeNodeComponent("lottie"),
     amountText: makeNodeComponent("amountText"),
-    typeText: makeNodeComponent("typeText"),
     // Metadata about props expected for PlasmicShieldLabel
     internalVariantProps: PlasmicShieldLabel__VariantProps,
     internalArgProps: PlasmicShieldLabel__ArgProps

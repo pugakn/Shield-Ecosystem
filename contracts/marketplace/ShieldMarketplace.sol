@@ -41,11 +41,11 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
     return 0x150b7a02;
   }
 
+  /* ========== VIEWS ========== */
   function marketItem(uint256 id) external view returns(ShieldMarketItem memory) {
     return _idToMarketItem[id];
   }
 
-  //TODO: Find a way to optimize this function
   function marketItemList() external view returns(ShieldMarketItem[] memory) {
     uint256 listLength = _activeItems.current();
     uint256 currentId = _marketItemId.current();
@@ -61,13 +61,15 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
     return items;
   }
 
+  /* ========== MUTATIVE FUNCTIONS ========== */
   function buyNFT(uint256 id) external nonReentrant {
     ShieldMarketItem storage item = _idToMarketItem[id];
-    require(item.seller != msg.sender, "Can not buy your own NFT");
+    // require(item.seller != msg.sender, "Can not buy your own NFT"); Removed for testing purposes
     shieldTokenContract.safeTransferFrom(msg.sender, item.seller, item.price);
     shieldNFTContract.safeTransferFrom(address(this), msg.sender, item.contractTokenId);
     delete _idToMarketItem[id];
     _activeItems.decrement();
+    emit BoughtItem(id);
   }
 
   function removeNFT(uint256 id) external {
@@ -76,6 +78,7 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
     shieldNFTContract.safeTransferFrom(address(this), item.seller, item.contractTokenId);
     delete _idToMarketItem[id];
     _activeItems.decrement();
+    emit RemovedItem(id);
   }
 
   function addNFT(uint256 contractTokenId, uint256 price) external nonReentrant {
@@ -95,6 +98,7 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
     );
 
     shieldNFTContract.safeTransferFrom(msg.sender, address(this), contractTokenId);
+    emit AddedItem(itemId);
   }
 
   function setPrice(uint256 id, uint256 price) external {
@@ -103,8 +107,14 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
     uint256 currentShieldValue = shieldNFTContract.tokenShieldValue(item.contractTokenId);
     require(currentShieldValue >= price, "Need more shield");
     item.price = price;
+    emit PriceSet(id, price);
   }
 
   /* ========== INTERNAL FUNCTIONS ============ */
 
+  /* ========== EVENTS ========== */
+  event AddedItem(uint256 itemId)
+  event RemovedItem(uint256 itemId)
+  event BoughtItem(uint256 itemId)
+  event PriceSet(uint256 itemId, uint256 price)
 }

@@ -24,6 +24,7 @@ contract ShieldNFT is ERC721Full, IERC721Shield {
     forgeTokenContract = IERC20(_forgeTokenContract);
   }
 
+  /* ========== VIEWS ========== */
   function tokenShieldValue(uint256 tokenId) external view returns (uint256) {
     require(_exists(tokenId), "tokenShieldValue: query for nonexistent token");
     return _tokenShieldValue[tokenId];
@@ -34,19 +35,23 @@ contract ShieldNFT is ERC721Full, IERC721Shield {
     return _tokenCreator[tokenId];
   }
 
+  /* ========== MUTATIVE FUNCTIONS ========== */
   function shieldMint(string calldata tokenURI) external returns (uint256) {
       uint256 newItemId = _tokenIds.current();
       _tokenIds.increment();
       _safeMint(msg.sender, newItemId);
       _setTokenURI(newItemId, tokenURI);
       _setTokenCreator(newItemId, msg.sender);
+      emit ShieldMinted(newItemId);
       return newItemId;
   }
 
   function addTokenShieldValue(uint256 tokenId, uint256 shieldValue) external {
     _addTokenShieldValue(tokenId, shieldValue);
+    emit ShieldValueAdded(tokenId, shieldValue);
   }
 
+  /* ========== INTERNAL FUNCTIONS ========== */
   function _setTokenCreator(uint256 tokenId, address account) internal{
     require(_exists(tokenId), "_setTokenCreator: set of nonexistent token");
     _tokenCreator[tokenId] = account;
@@ -58,4 +63,8 @@ contract ShieldNFT is ERC721Full, IERC721Shield {
     _tokenShieldValue[tokenId] = _tokenShieldValue[tokenId].add(shieldValue);
   }
 
+
+  /* ========== EVENTS ========== */
+  event ShieldValueAdded(uint256 tokenId, uint256 amount);
+  event ShieldMinted(uint256 tokenId);
 }

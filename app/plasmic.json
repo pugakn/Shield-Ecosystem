@@ -449,6 +449,32 @@
           "cssFilePath": "plasmic/shield_ecosystem_app/PlasmicPopUp.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "K5e8nSjrQ4",
+          "name": "NftAddShieldWidget",
+          "type": "managed",
+          "projectId": "32A6R5tEk8Q2nVvJmPnVbf",
+          "renderModuleFilePath": "plasmic/shield_ecosystem_app/PlasmicNftAddShieldWidget.jsx",
+          "importSpec": {
+            "modulePath": "NftAddShieldWidget.jsx"
+          },
+          "cssFilePath": "plasmic/shield_ecosystem_app/PlasmicNftAddShieldWidget.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "HXElpPSN5x",
+          "name": "NftSellWidget",
+          "type": "managed",
+          "projectId": "32A6R5tEk8Q2nVvJmPnVbf",
+          "renderModuleFilePath": "plasmic/shield_ecosystem_app/PlasmicNftSellWidget.jsx",
+          "importSpec": {
+            "modulePath": "NftSellWidget.jsx"
+          },
+          "cssFilePath": "plasmic/shield_ecosystem_app/PlasmicNftSellWidget.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

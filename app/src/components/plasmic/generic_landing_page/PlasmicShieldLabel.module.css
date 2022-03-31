@@ -12,26 +12,12 @@
   max-width: 100%;
   position: relative;
   width: 51px;
-  height: 44px;
+  height: 41px;
   flex-shrink: 0;
   padding: 0px;
-  margin: -22px -18px -18px;
+  margin: -19px 0px -18px -18px;
 }
 .amountText {
-  font-family: "Advent Pro", sans-serif;
-  font-size: var(--token-pGM6kN_go);
-  font-weight: 300;
-  color: var(--token-Se0f4L5T10wDU);
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 800px;
-  text-align: left;
-  text-decoration-line: none;
-  margin-left: 4px;
-  min-width: 0;
-}
-.typeText {
   font-family: "Advent Pro", sans-serif;
   font-size: var(--token-pGM6kN_go);
   font-weight: 300;

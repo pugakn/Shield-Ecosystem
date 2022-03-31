@@ -26,7 +26,7 @@ import sunglassesMaleXXZ2KgDyeVng from "./images/sunglassesMale.jpeg"; // plasmi
 
 export const PlasmicMarketItemCard__VariantProps = new Array("profile", "type");
 
-export const PlasmicMarketItemCard__ArgProps = new Array();
+export const PlasmicMarketItemCard__ArgProps = new Array("children");
 
 function PlasmicMarketItemCard__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -273,7 +273,6 @@ function PlasmicMarketItemCard__RenderFunc(props) {
             className={classNames(
               projectcss.all,
               projectcss.button,
-              projectcss.__wab_text,
               sty.removeButton,
               {
                 [sty.removeButtonprofile]: hasVariant(
@@ -304,15 +303,63 @@ function PlasmicMarketItemCard__RenderFunc(props) {
             id={""}
             role={""}
           >
-            {hasVariant(variants, "type", "onSale")
-              ? "Remove from market"
-              : hasVariant(variants, "type", "_static")
-              ? "Add SHIELD Power"
-              : hasVariant(variants, "type", "dynamic")
-              ? "Add SHIELD Power"
-              : hasVariant(variants, "profile", "profile")
-              ? "Add SHIELD Power"
-              : "Buy now: 500000 SHIELD"}
+            <div
+              className={classNames(projectcss.all, sty.freeBox__rylO3, {
+                [sty.freeBoxprofile__rylO3WvqJp]: hasVariant(
+                  variants,
+                  "profile",
+                  "profile"
+                ),
+
+                [sty.freeBoxtype__static__rylO3Zqfqj]: hasVariant(
+                  variants,
+                  "type",
+                  "_static"
+                ),
+
+                [sty.freeBoxtype_dynamic__rylO36K8Co]: hasVariant(
+                  variants,
+                  "type",
+                  "dynamic"
+                ),
+
+                [sty.freeBoxtype_onSale__rylO3Sa2Du]: hasVariant(
+                  variants,
+                  "type",
+                  "onSale"
+                )
+              })}
+            >
+              {p.renderPlasmicSlot({
+                defaultContents: "Add SHIELD Power",
+                value: args.children,
+                className: classNames(sty.slotTargetChildren, {
+                  [sty.slotTargetChildrenprofile]: hasVariant(
+                    variants,
+                    "profile",
+                    "profile"
+                  ),
+
+                  [sty.slotTargetChildrentype__static]: hasVariant(
+                    variants,
+                    "type",
+                    "_static"
+                  ),
+
+                  [sty.slotTargetChildrentype_dynamic]: hasVariant(
+                    variants,
+                    "type",
+                    "dynamic"
+                  ),
+
+                  [sty.slotTargetChildrentype_onSale]: hasVariant(
+                    variants,
+                    "type",
+                    "onSale"
+                  )
+                })
+              })}
+            </div>
           </button>
         ) : null}
         {(

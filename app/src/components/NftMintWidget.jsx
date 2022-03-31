@@ -11,23 +11,23 @@ function NftMintWidget_(props, ref) {
   const nftContract = drizzle.contracts.ShieldNFT;
 
   return <PlasmicNftMintWidget
-  titleInput={{ 
-    onChange: (e) => {
-      setTitle(e.target.value);
-    } 
-  }}
-  mintButton={{ 
-    onClick: async (event) => {
-      await nftContract.methods['shieldMint'].cacheSend('');
-      onSubmit();
-    }
-  }}
-  root={{ 
-    onClick: (event) => {
-      event.stopPropagation();
-    }
-  }} 
-  {...rest} 
+    titleInput={{ 
+      onChange: (e) => {
+        setTitle(e.target.value);
+      } 
+    }}
+    mintButton={{ 
+      onClick: async (event) => {
+        await nftContract.methods['shieldMint'].cacheSend('');
+        onSubmit();
+      }
+    }}
+    root={{ 
+      onClick: (event) => {
+        event.stopPropagation();
+      }
+    }} 
+    {...rest} 
   />;
 }
 

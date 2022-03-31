@@ -25,6 +25,8 @@ import StakeCard from "../../StakeCard"; // plasmic-import: L5_Xmsn3V7z/componen
 import StakeList from "../../StakeList"; // plasmic-import: agZnPQYLHu/component
 import FooterSection from "../../FooterSection"; // plasmic-import: ZPeZubRauiZV6n/component
 import PopUp from "../../PopUp"; // plasmic-import: 6B_96A4ymw/component
+import NftAddShieldWidget from "../../NftAddShieldWidget"; // plasmic-import: K5e8nSjrQ4/component
+import NftSellWidget from "../../NftSellWidget"; // plasmic-import: HXElpPSN5x/component
 import { useScreenVariants as useScreenVariantsjeKVrGjKUcgD } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JeKVrGjK-UcgD/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_generic_landing_page.module.css"; // plasmic-import: 32A6R5tEk8Q2nVvJmPnVbf/projectcss
@@ -6532,9 +6534,9 @@ function PlasmicHomePage__RenderFunc(props) {
 
               <div className={classNames(projectcss.all, sty.freeBox__to9Sr)}>
                 <MarketItemList
-                  data-plasmic-name={"marketItemList"}
-                  data-plasmic-override={overrides.marketItemList}
-                  className={classNames("__wab_instance", sty.marketItemList)}
+                  data-plasmic-name={"marketNftList"}
+                  data-plasmic-override={overrides.marketNftList}
+                  className={classNames("__wab_instance", sty.marketNftList)}
                 />
               </div>
             </p.Stack>
@@ -6551,6 +6553,37 @@ function PlasmicHomePage__RenderFunc(props) {
               data-plasmic-name={"mintPopUp"}
               data-plasmic-override={overrides.mintPopUp}
               className={classNames("__wab_instance", sty.mintPopUp)}
+            />
+          ) : null}
+          {true ? (
+            <PopUp
+              data-plasmic-name={"addShieldPopUp"}
+              data-plasmic-override={overrides.addShieldPopUp}
+              className={classNames("__wab_instance", sty.addShieldPopUp)}
+              popUpContent={
+                <NftAddShieldWidget
+                  data-plasmic-name={"nftAddShieldWidget"}
+                  data-plasmic-override={overrides.nftAddShieldWidget}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.nftAddShieldWidget
+                  )}
+                />
+              }
+            />
+          ) : null}
+          {true ? (
+            <PopUp
+              data-plasmic-name={"sellPopUp"}
+              data-plasmic-override={overrides.sellPopUp}
+              className={classNames("__wab_instance", sty.sellPopUp)}
+              popUpContent={
+                <NftSellWidget
+                  data-plasmic-name={"nftSellWidget"}
+                  data-plasmic-override={overrides.nftSellWidget}
+                  className={classNames("__wab_instance", sty.nftSellWidget)}
+                />
+              }
             />
           ) : null}
         </div>
@@ -6576,9 +6609,13 @@ const PlasmicDescendants = {
     "stakeCard",
     "stakeList",
     "marketItemsSection",
-    "marketItemList",
+    "marketNftList",
     "footerSection",
-    "mintPopUp"
+    "mintPopUp",
+    "addShieldPopUp",
+    "nftAddShieldWidget",
+    "sellPopUp",
+    "nftSellWidget"
   ],
 
   navbar: ["navbar"],
@@ -6594,10 +6631,14 @@ const PlasmicDescendants = {
   getShieldButton: ["getShieldButton"],
   stakeCard: ["stakeCard"],
   stakeList: ["stakeList"],
-  marketItemsSection: ["marketItemsSection", "marketItemList"],
-  marketItemList: ["marketItemList"],
+  marketItemsSection: ["marketItemsSection", "marketNftList"],
+  marketNftList: ["marketNftList"],
   footerSection: ["footerSection"],
-  mintPopUp: ["mintPopUp"]
+  mintPopUp: ["mintPopUp"],
+  addShieldPopUp: ["addShieldPopUp", "nftAddShieldWidget"],
+  nftAddShieldWidget: ["nftAddShieldWidget"],
+  sellPopUp: ["sellPopUp", "nftSellWidget"],
+  nftSellWidget: ["nftSellWidget"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -6643,9 +6684,13 @@ export const PlasmicHomePage = Object.assign(
     stakeCard: makeNodeComponent("stakeCard"),
     stakeList: makeNodeComponent("stakeList"),
     marketItemsSection: makeNodeComponent("marketItemsSection"),
-    marketItemList: makeNodeComponent("marketItemList"),
+    marketNftList: makeNodeComponent("marketNftList"),
     footerSection: makeNodeComponent("footerSection"),
     mintPopUp: makeNodeComponent("mintPopUp"),
+    addShieldPopUp: makeNodeComponent("addShieldPopUp"),
+    nftAddShieldWidget: makeNodeComponent("nftAddShieldWidget"),
+    sellPopUp: makeNodeComponent("sellPopUp"),
+    nftSellWidget: makeNodeComponent("nftSellWidget"),
     // Metadata about props expected for PlasmicHomePage
     internalVariantProps: PlasmicHomePage__VariantProps,
     internalArgProps: PlasmicHomePage__ArgProps

@@ -18,7 +18,7 @@ function MarketItemCard_(props, ref) {
 
   const maxAllowance = '115792089237316195423570985008687907853269984665640564039457584007913129639935';
   React.useEffect(() => {
-    if (itemId) {
+    if (itemId !== undefined) {
       const shieldValue = nftContract.methods['tokenShieldValue'].cacheCall(itemId);
       const metadata = nftContract.methods['tokenURI'](itemId).call().then(uri => {
         if (uri) {
@@ -28,9 +28,6 @@ function MarketItemCard_(props, ref) {
           fetch(uri.replace('ipfs://', 'https://nftstorage.link/ipfs/'), requestOptions)
           .then(response => response.json())
           .then(data => {
-            if (marketId){
-              console.log('aaaaaaaa', data)
-            }
             setNftData(data);
           });
         }
@@ -39,46 +36,45 @@ function MarketItemCard_(props, ref) {
       setDataKeys({ shieldValue, shieldValue, allowance: allowanceKey, metadata: metadata });
     }
   }, [itemId]);
-  
 
   const shieldValue = (drizzleContext.drizzleState.contracts.ShieldNFT.tokenShieldValue[dataKeys.shieldValue]?.value /100).toFixed(2);
   const allowanceAmount = drizzleContext.drizzleState.contracts.ShieldToken.allowance[dataKeys.allowance]?.value;
   const isAllowed = allowanceAmount != 0;
-
-  return <PlasmicMarketItemCard 
-    image={{ 
-      src: nftData.image ? nftData.image : 'https://via.placeholder.com/150',
-    }}
-    removeButton={{ 
-      ...(!isProfileItem && {children: isAllowed ? `Buy now: ${price/100} SHIELD` : `Approve`}),
-      onClick: (event) => {
-        // If it is a profile item, add shield
-        if (isProfileItem) {
-          onAddShield(itemId);
-        // If it is a market item, buy it
-        } else {
-          if (isAllowed) {
-            marketplaceContract.methods['buyNFT'](marketId).send();
+  return React.useMemo(() => {
+    return <PlasmicMarketItemCard 
+      image={{ 
+        src: nftData.image ? nftData.image : 'https://via.placeholder.com/150',
+      }}
+      removeButton={{ 
+        ...(!isProfileItem && {children: isAllowed ? `Buy now: ${price/100} SHIELD` : `Approve`}),
+        onClick: (event) => {
+          // If it is a profile item, add shield
+          if (isProfileItem) {
+            onAddShield(itemId);
+          // If it is a market item, buy it
           } else {
-            shieldContract.methods['approve'](marketplaceContract.address, maxAllowance).send();
+            if (isAllowed) {
+              marketplaceContract.methods['buyNFT'](marketId).send();
+            } else {
+              shieldContract.methods['approve'](marketplaceContract.address, maxAllowance).send();
+            }
           }
         }
-      }
-    }}
-    sellButton={{
-      onClick: (event) => {
-        onSell(itemId);
-      }
-    }}
-    shieldLabel={{
-      amountText: shieldValue.toString(),
-    }}
-    titleText= { nftData.name || 'Loading...' }
-    root={{ ref }} 
-    {...rest}
-  />;
+      }}
+      sellButton={{
+        onClick: (event) => {
+          onSell(itemId);
+        }
+      }}
+      shieldLabel={{
+        amountText: shieldValue.toString(),
+      }}
+      titleText= { nftData.name || 'Loading...' }
+      root={{ ref }} 
+      {...rest}
+    />;
+  }, [itemId, isAllowed, shieldValue, nftData]);
 }
 
 const MarketItemCard = React.forwardRef(MarketItemCard_);
-
-export default React.memo(MarketItemCard);
+export default MarketItemCard;

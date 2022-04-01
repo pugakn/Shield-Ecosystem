@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@drizzle/react-components": "^1.5.1",
-    "@drizzle/react-plugin": "^1.5.1",
-    "@drizzle/store": "^1.5.1",
+    "@drizzle/react-components": "^1.5.3",
+    "@drizzle/react-plugin": "^1.5.3",
+    "@drizzle/store": "^1.5.3",
     "@plasmicapp/loader-react": "^1.0.80",
     "@plasmicapp/react-web": "^0.2.91",
     "@plasmicpkgs/antd": "^0.0.30",

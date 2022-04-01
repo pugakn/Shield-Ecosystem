@@ -9,25 +9,9 @@ import HomePage from './components/HomePage';
 
 const drizzle = new Drizzle(drizzleOptions);
 
-// DrizzleContext.Provider.prototype.componentDidMount = function(){
-//   const { drizzle } = this.props;
-//   // subscribe to changes in the store, keep state up-to-date
-//   this.unsubscribe = drizzle.store.subscribe(() => {
-//     const drizzleState = drizzle.store.getState();
-//     if (drizzleState.drizzleStatus.initialized) {
-//       const different = JSON.stringify(drizzleState?.contracts) !== JSON.stringify(this.state.drizzleState?.contracts)
-//       if (different) {
-//         console.log(drizzleState?.contracts, this.state.drizzleState?.contracts)
-//         this.setState({
-//           drizzleState,
-//           initialized: true
-//         });
-//       }
-//     }
-//   });
-// }
 
-// Hack
+// !Hack
+// Drizzle is not prepared to handle the speed of the telos EVM, so we need to hack it. :=)
 DrizzleContext.Provider.prototype.componentDidMount = function(){
   const { drizzle } = this.props;
   // subscribe to changes in the store, keep state up-to-date

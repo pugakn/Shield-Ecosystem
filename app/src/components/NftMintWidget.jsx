@@ -1,6 +1,7 @@
 import * as React from "react";
 import { PlasmicNftMintWidget } from "./plasmic/shield_ecosystem_app/PlasmicNftMintWidget";
 import { DrizzleContext } from "@drizzle/react-plugin";
+import Compressor from 'compressorjs';
 
 // !TODO: THIS KEY IS ONLY FOR TESTING PURPOSES. REMOVE ON PRODUCTION AND USE A BACKEND SERVICE INSTEAD.
 const NFT_STORAGE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDRGN2I2ZTc4ZDYxNzY5ODg3MDBjMzRhRTg5QjY1OTJFMjBmQkZEYTMiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY0ODcxMDcwODg3NCwibmFtZSI6IlNoaWVsZERldmVsb3BtZW50In0.EgUZmkxX-YF3mQRaA4IMPVhhtCT93O1sEGr_5y7Ut9A'
@@ -20,7 +21,7 @@ function NftMintWidget_(props, ref) {
       } 
     }}
     image= {{ 
-      ...(image && {src: image})
+      ...(image && {src:image})
     }}
     imageInput={{
       render: (props) => {
@@ -28,12 +29,16 @@ function NftMintWidget_(props, ref) {
           onChange= {(e) => {
             const file = e.target.files[0];
             if (file) {
-              const reader = new FileReader();
-              reader.onload = (e) => {
-                const image = e.target.result;
-                setImage(image);
-              };
-              reader.readAsDataURL(file);
+              new Compressor(file, {
+                quality: 0.7,
+                success: (compressedResult) => {  
+                  const reader = new FileReader();
+                  reader.onload = (image) => {
+                    setImage(image.target.result);
+                  };
+                  reader.readAsDataURL(compressedResult);
+                },
+              });
             }
           }}
         />

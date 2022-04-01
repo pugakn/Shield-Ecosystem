@@ -11,6 +11,7 @@
     "@plasmicpkgs/antd": "^0.0.30",
     "@plasmicpkgs/lottie-react": "^0.0.10",
     "antd": "^4.19.2",
+    "compressorjs": "^1.1.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^6.2.2",

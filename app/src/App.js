@@ -30,14 +30,38 @@ DrizzleContext.Provider.prototype.componentDidMount = function(){
   });
 }
 
+
+
 function AppRoot() {
+  const [accounts, setAccounts] = React.useState([window.ethereum?.selectedAddress]);
+  const connectWallet = async () => {
+    // Check if MetaMask is installed on user's browser
+    if(window.ethereum) {
+      const chainId = await window.ethereum.request({ method: 'eth_chainId'});
+      // Check if user is connected to Mainnet
+      if(chainId != 41) {
+        alert("Please connect to Telos testnet");
+      } else {
+        const acc = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        setAccounts(acc);
+        window.location.reload();
+      }
+    } else {
+      alert("Please install Mask");
+    }
+  }
   return (
     <DrizzleContext.Provider drizzle={drizzle}>
        <DrizzleContext.Consumer>
          {drizzleContext => {
            const { drizzle, drizzleState, initialized } = drizzleContext;
-           if (!initialized) {
-             return "Please connect using metamask."
+           if (!accounts[0] || !initialized) {
+            return (
+              <div>
+                <h1>Please connect to MetaMask</h1>
+                <button onClick={() => connectWallet()}>Connect</button>
+              </div>
+            )
            }
            return (
             <Router>

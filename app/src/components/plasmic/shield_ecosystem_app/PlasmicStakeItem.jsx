@@ -23,11 +23,7 @@ import sty from "./PlasmicStakeItem.module.css"; // plasmic-import: nAEUjCFKSM/c
 
 export const PlasmicStakeItem__VariantProps = new Array("enabled");
 
-export const PlasmicStakeItem__ArgProps = new Array(
-  "shieldText",
-  "forgeText",
-  "dateText"
-);
+export const PlasmicStakeItem__ArgProps = new Array("shieldText", "dateText");
 
 function PlasmicStakeItem__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -67,15 +63,7 @@ function PlasmicStakeItem__RenderFunc(props) {
               data-plasmic-name={"forgeTextContainer"}
               data-plasmic-override={overrides.forgeTextContainer}
               className={classNames(projectcss.all, sty.forgeTextContainer)}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__l9Oni)}>
-                {p.renderPlasmicSlot({
-                  defaultContents: "Awarded: 5000 FORGE",
-                  value: args.forgeText,
-                  className: classNames(sty.slotTargetForgeText)
-                })}
-              </div>
-            </div>
+            />
           </div>
 
           <div className={classNames(projectcss.all, sty.freeBox__zCi6Z)}>

@@ -4,8 +4,8 @@ import { DrizzleContext } from "@drizzle/react-plugin";
 function Navbar_(props, ref) {
   const {shieldAmount, forgeAmount, ...rest} = props;
   return <PlasmicNavbar 
-    shieldText={`SHIELD: ${shieldAmount/100}`}
-    forgeText={`FORGE: ${forgeAmount/100}`}
+    shieldText={`SHIELD: ${(shieldAmount/100).toFixed(2)}`}
+    forgeText={`FORGE: ${(forgeAmount/100).toFixed(2)}`}
     root={{ ref }} 
     {...rest} 
   />;

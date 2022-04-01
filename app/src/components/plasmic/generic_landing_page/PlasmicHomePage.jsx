@@ -31,6 +31,7 @@ import { useScreenVariants as useScreenVariantsjeKVrGjKUcgD } from "./PlasmicGlo
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_generic_landing_page.module.css"; // plasmic-import: 32A6R5tEk8Q2nVvJmPnVbf/projectcss
 import sty from "./PlasmicHomePage.module.css"; // plasmic-import: 8pZcqnZ-MknFj/css
+import logosvg2Wmj5ESLgj from "../shield_ecosystem_app/images/logosvg2.svg"; // plasmic-import: WMJ5eSLgj/picture
 
 export const PlasmicHomePage__VariantProps = new Array();
 
@@ -105,13 +106,37 @@ function PlasmicHomePage__RenderFunc(props) {
                     </div>
 
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__immu
-                      )}
+                      className={classNames(projectcss.all, sty.freeBox__px4Za)}
                     >
-                      {"The SHIELD NFT ecosystem."}
+                      <p.PlasmicImg
+                        data-plasmic-name={"img"}
+                        data-plasmic-override={overrides.img}
+                        alt={""}
+                        className={classNames(sty.img)}
+                        displayHeight={"270px"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"229px"}
+                        loading={"lazy"}
+                        src={{
+                          src: logosvg2Wmj5ESLgj,
+                          fullWidth: 150,
+                          fullHeight: 150,
+                          aspectRatio: 1.001488
+                        }}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__immu
+                        )}
+                      >
+                        {"The SHIELD NFT ecosystem."}
+                      </div>
                     </div>
 
                     <div
@@ -122,7 +147,7 @@ function PlasmicHomePage__RenderFunc(props) {
                       )}
                     >
                       {
-                        "Not just another marketplace, SHIELD helps artists, developers, collectors and end users to adopt NFT tecnology reducing scams an speculation price fluctuations."
+                        "Not just another marketplace, SHIELD helps artists, developers, collectors and end users to adopt NFT technology reducing scams and speculation price fluctuations."
                       }
                     </div>
                   </p.Stack>
@@ -6600,6 +6625,7 @@ const PlasmicDescendants = {
     "navbar",
     "headerHeroSection",
     "columns",
+    "img",
     "button",
     "lottie",
     "mintSection",
@@ -6621,8 +6647,16 @@ const PlasmicDescendants = {
   ],
 
   navbar: ["navbar"],
-  headerHeroSection: ["headerHeroSection", "columns", "button", "lottie"],
-  columns: ["columns", "button", "lottie"],
+  headerHeroSection: [
+    "headerHeroSection",
+    "columns",
+    "img",
+    "button",
+    "lottie"
+  ],
+
+  columns: ["columns", "img", "button", "lottie"],
+  img: ["img"],
   button: ["button"],
   lottie: ["lottie"],
   mintSection: ["mintSection", "mintButton"],
@@ -6675,6 +6709,7 @@ export const PlasmicHomePage = Object.assign(
     navbar: makeNodeComponent("navbar"),
     headerHeroSection: makeNodeComponent("headerHeroSection"),
     columns: makeNodeComponent("columns"),
+    img: makeNodeComponent("img"),
     button: makeNodeComponent("button"),
     lottie: makeNodeComponent("lottie"),
     mintSection: makeNodeComponent("mintSection"),

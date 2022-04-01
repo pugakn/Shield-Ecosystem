@@ -49,10 +49,10 @@ function NftAddShieldWidget_(props, ref) {
         // If the user has not approved the forge contract, then approve it.
         try {
           if (!isAllowed) {
-            forgeContract.methods['approve'].cacheSend(nftContract.address, maxAllowance);
+            forgeContract.methods['approve'](nftContract.address, maxAllowance).send();
             // If the user has already approved the forge contract, then mint the shield.
           } else {
-            drizzle.contracts.ShieldNFT.methods['addTokenShieldValue'].cacheSend(itemId, amount*100);
+            drizzle.contracts.ShieldNFT.methods['addTokenShieldValue'](itemId, amount*100).send();
             onSubmit();
           }
         } catch (error) {

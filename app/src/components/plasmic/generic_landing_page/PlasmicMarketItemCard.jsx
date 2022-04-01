@@ -354,6 +354,7 @@ function PlasmicMarketItemCard__RenderFunc(props) {
                 )
               }
             )}
+            disabled={false}
             id={""}
             role={""}
           >

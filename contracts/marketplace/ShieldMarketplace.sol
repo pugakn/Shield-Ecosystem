@@ -10,10 +10,11 @@ import "@openzeppelin/contracts/drafts/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
-
+import "@openzeppelin/contracts/lifecycle/Pausable.sol";
+import "@openzeppelin/contracts/ownership/Ownable.sol";
 import "../interfaces/IERC721Shield.sol";
 
-contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
+contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver, Pausable, Ownable {
   struct ShieldMarketItem {
     uint256 marketId;
     uint256 contractTokenId;
@@ -62,7 +63,7 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
   }
 
   /* ========== MUTATIVE FUNCTIONS ========== */
-  function buyNFT(uint256 id) external nonReentrant {
+  function buyNFT(uint256 id) external nonReentrant whenNotPaused {
     ShieldMarketItem storage item = _idToMarketItem[id];
     // require(item.seller != msg.sender, "Can not buy your own NFT"); Removed for testing purposes
     shieldTokenContract.safeTransferFrom(msg.sender, item.seller, item.price);
@@ -81,7 +82,7 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
     emit RemovedItem(id);
   }
 
-  function addNFT(uint256 contractTokenId, uint256 price) external nonReentrant {
+  function addNFT(uint256 contractTokenId, uint256 price) external nonReentrant whenNotPaused {
     require(price > 0, "Price must be more than 0");
     uint256 currentShieldValue = shieldNFTContract.tokenShieldValue(contractTokenId);
     require(currentShieldValue >= price, "Need more shield");
@@ -110,11 +111,23 @@ contract ShieldMarketplace is ReentrancyGuard, IERC721Receiver {
     emit PriceSet(id, price);
   }
 
+  function cleanAll() external onlyOwner {
+    uint256 currentId = _marketItemId.current();
+    for (uint256 i = 0; i < currentId; i++) {
+      ShieldMarketItem storage item = _idToMarketItem[i];
+      if (item.seller != address(0)) {
+        shieldNFTContract.safeTransferFrom(address(this), item.seller, item.contractTokenId);
+        delete _idToMarketItem[i];
+        _activeItems.decrement();
+      }
+    }
+  }
+
   /* ========== INTERNAL FUNCTIONS ============ */
 
   /* ========== EVENTS ========== */
-  event AddedItem(uint256 itemId)
-  event RemovedItem(uint256 itemId)
-  event BoughtItem(uint256 itemId)
-  event PriceSet(uint256 itemId, uint256 price)
+  event AddedItem(uint256 itemId);
+  event RemovedItem(uint256 itemId);
+  event BoughtItem(uint256 itemId);
+  event PriceSet(uint256 itemId, uint256 price);
 }

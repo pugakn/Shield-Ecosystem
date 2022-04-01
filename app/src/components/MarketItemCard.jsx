@@ -58,9 +58,9 @@ function MarketItemCard_(props, ref) {
         // If it is a market item, buy it
         } else {
           if (isAllowed) {
-            marketplaceContract.methods['buyNFT'].cacheSend(marketId);
+            marketplaceContract.methods['buyNFT'](marketId).send();
           } else {
-            shieldContract.methods['approve'].cacheSend(marketplaceContract.address, maxAllowance);
+            shieldContract.methods['approve'](marketplaceContract.address, maxAllowance).send();
           }
         }
       }

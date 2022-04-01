@@ -674,6 +674,11 @@
           "id": "P8lQZOkqL",
           "name": "Upload-PNG-Images.png",
           "filePath": "plasmic/shield_ecosystem_app/images/uploadPngImagespng.png"
+        },
+        {
+          "id": "WMJ5eSLgj",
+          "name": "logo.svg 2",
+          "filePath": "plasmic/shield_ecosystem_app/images/logosvg2.svg"
         }
       ],
       "indirect": false,

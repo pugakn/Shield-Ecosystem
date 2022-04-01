@@ -19,7 +19,7 @@ import {
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_generic_landing_page.module.css"; // plasmic-import: 32A6R5tEk8Q2nVvJmPnVbf/projectcss
 import sty from "./PlasmicLogo.module.css"; // plasmic-import: tm91OI3WBC-gJR/css
-import logoNkNmuAMwPN5 from "./images/logo.svg"; // plasmic-import: NKNmu-aMW-pN5/picture
+import logosvg2Wmj5ESLgj from "../shield_ecosystem_app/images/logosvg2.svg"; // plasmic-import: WMJ5eSLgj/picture
 
 export const PlasmicLogo__VariantProps = new Array("_50Opaque");
 
@@ -59,10 +59,10 @@ function PlasmicLogo__RenderFunc(props) {
         displayMinWidth={"0"}
         displayWidth={"40px"}
         src={{
-          src: logoNkNmuAMwPN5,
+          src: logosvg2Wmj5ESLgj,
           fullWidth: 150,
           fullHeight: 150,
-          aspectRatio: 1
+          aspectRatio: 1.001488
         }}
       />
     </a>

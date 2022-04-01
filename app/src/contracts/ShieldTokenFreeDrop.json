@@ -1,0 +1,1172 @@
+{
+  "contractName": "ShieldTokenFreeDrop",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_shieldTokenContract",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "_alreadyDropped",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "shieldTokenContract",
+      "outputs": [
+        {
+          "internalType": "contract ERC20Mintable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "getDrop",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_shieldTokenContract\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"_alreadyDropped\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"getDrop\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"shieldTokenContract\",\"outputs\":[{\"internalType\":\"contract ERC20Mintable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/tokens/ShieldTokenFreeDrop.sol\":\"ShieldTokenFreeDrop\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"@openzeppelin/contracts/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"@openzeppelin/contracts/access/roles/MinterRole.sol\":{\"keccak256\":\"0xbe8eef6f2cb4e427f5c5d8a76865ccd06e55a4f1d6671ba312d45bfa705aedbf\",\"urls\":[\"bzz-raw://badf338a5e22c8658c01fe2ce89b487d9dbf6d2d9d5eb49df7415383e2498765\",\"dweb:/ipfs/QmP5aMkvFwMJyuQjKE8ADh5tkWYqonb4KjgkAjgYEVVFAv\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xb15af804e2bc97db51e4e103f13de9fe13f87e6b835d7a88c897966c0e58506e\",\"urls\":[\"bzz-raw://1e8cff8437557fc915a3bed968fcd8f2df9809599e665ef69c2c9ce628548055\",\"dweb:/ipfs/QmP5spYP8vs2jvLF8zNrXUbqB79hMsoEvMHiLcBxerWKcm\"]},\"@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol\":{\"keccak256\":\"0xa2b957cf89692c504962afb7506999155f83385373f808243246cd5879de5940\",\"urls\":[\"bzz-raw://c44ae0ad1bce141c33b962f8b4e9228bdf8df36c8ac363b4f0bf9498b8bfc32a\",\"dweb:/ipfs/QmcSBRdFwVvy2wFZrBwo5cvqNP4UHh9Eyzf8jnxBgnPqfe\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"project:/contracts/tokens/ShieldTokenFreeDrop.sol\":{\"keccak256\":\"0xd5703b45f473dd4559472614aa5c2eb66c73bc664396f89a5148e6616df35477\",\"urls\":[\"bzz-raw://af898c119cf05263408e8bf562a17fd9ad2af471cd0347087041f7ed9979e1f6\",\"dweb:/ipfs/QmNXYHeHtFH5aJZLBRAVRbdri3ct7Lz7SRQVWE9HCvmzbH\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516103443803806103448339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506102b0806100946000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063123ad504146100465780639c99c942146100a2578063f9513736146100ac575b600080fd5b6100886004803603602081101561005c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506100f6565b604051808215151515815260200191505060405180910390f35b6100aa610116565b005b6100b4610256565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60016020528060005260406000206000915054906101000a900460ff1681565b60018060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166340c10f1933620186a06040518363ffffffff1660e01b8152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561021857600080fd5b505af115801561022c573d6000803e3d6000fd5b505050506040513d602081101561024257600080fd5b810190808051906020019092919050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820d8ab2ba785a0c9598dbbd2c0c4240977e70a13d750fd6af1cd19cd3b706c63a264736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c8063123ad504146100465780639c99c942146100a2578063f9513736146100ac575b600080fd5b6100886004803603602081101561005c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506100f6565b604051808215151515815260200191505060405180910390f35b6100aa610116565b005b6100b4610256565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60016020528060005260406000206000915054906101000a900460ff1681565b60018060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166340c10f1933620186a06040518363ffffffff1660e01b8152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561021857600080fd5b505af115801561022c573d6000803e3d6000fd5b505050506040513d602081101561024257600080fd5b810190808051906020019092919050505050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820d8ab2ba785a0c9598dbbd2c0c4240977e70a13d750fd6af1cd19cd3b706c63a264736f6c63430005100032",
+  "sourceMap": "131:448:34:-;;;260:117;8:9:-1;5:2;;;30:1;27;20:12;5:2;260:117:34;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;260:117:34;;;;;;;;;;;;;;;;351:20;315:19;;:57;;;;;;;;;;;;;;;;;;260:117;131:448;;;;;;",
+  "deployedSourceMap": "131:448:34:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;131:448:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;208:47;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;208:47:34;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;381:196;;;:::i;:::-;;164:40;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;208:47;;;;;;;;;;;;;;;;;;;;;;:::o;381:196::-;518:4;488:15;:27;504:10;488:27;;;;;;;;;;;;;;;;:34;;;;;;;;;;;;;;;;;;528:19;;;;;;;;;;;:24;;;553:10;565:6;528:44;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;528:44:34;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;528:44:34;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;528:44:34;;;;;;;;;;;;;;;;;381:196::o;164:40::-;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.21 <0.7.0;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol\";\n\ncontract ShieldTokenFreeDrop {\n  ERC20Mintable public shieldTokenContract;\n  mapping(address => bool) public _alreadyDropped;\n\n  constructor(address _shieldTokenContract) public {\n    shieldTokenContract = ERC20Mintable(_shieldTokenContract);\n  }\n\n  function getDrop() public {\n    // require(!_alreadyDropped[msg.sender]); Removed for testing purposes\n    _alreadyDropped[msg.sender] = true;\n    shieldTokenContract.mint(msg.sender, 100000);\n  }\n}\n",
+  "sourcePath": "P:\\trabajo\\PKN\\Crypto\\Ring Ecosystem\\contracts\\tokens\\ShieldTokenFreeDrop.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/tokens/ShieldTokenFreeDrop.sol",
+    "exportedSymbols": {
+      "ShieldTokenFreeDrop": [
+        4405
+      ]
+    },
+    "id": 4406,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4366,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:34"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol",
+        "id": 4367,
+        "nodeType": "ImportDirective",
+        "scope": 4406,
+        "sourceUnit": 1351,
+        "src": "66:63:34",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4405,
+        "linearizedBaseContracts": [
+          4405
+        ],
+        "name": "ShieldTokenFreeDrop",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 4369,
+            "name": "shieldTokenContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 4405,
+            "src": "164:40:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ERC20Mintable_$1350",
+              "typeString": "contract ERC20Mintable"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 4368,
+              "name": "ERC20Mintable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1350,
+              "src": "164:13:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC20Mintable_$1350",
+                "typeString": "contract ERC20Mintable"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 4373,
+            "name": "_alreadyDropped",
+            "nodeType": "VariableDeclaration",
+            "scope": 4405,
+            "src": "208:47:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+              "typeString": "mapping(address => bool)"
+            },
+            "typeName": {
+              "id": 4372,
+              "keyType": {
+                "id": 4370,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "216:7:34",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "208:24:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                "typeString": "mapping(address => bool)"
+              },
+              "valueType": {
+                "id": 4371,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "227:4:34",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4384,
+              "nodeType": "Block",
+              "src": "309:68:34",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4382,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 4378,
+                      "name": "shieldTokenContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4369,
+                      "src": "315:19:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC20Mintable_$1350",
+                        "typeString": "contract ERC20Mintable"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 4380,
+                          "name": "_shieldTokenContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4375,
+                          "src": "351:20:34",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 4379,
+                        "name": "ERC20Mintable",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1350,
+                        "src": "337:13:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_ERC20Mintable_$1350_$",
+                          "typeString": "type(contract ERC20Mintable)"
+                        }
+                      },
+                      "id": 4381,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "337:35:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC20Mintable_$1350",
+                        "typeString": "contract ERC20Mintable"
+                      }
+                    },
+                    "src": "315:57:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20Mintable_$1350",
+                      "typeString": "contract ERC20Mintable"
+                    }
+                  },
+                  "id": 4383,
+                  "nodeType": "ExpressionStatement",
+                  "src": "315:57:34"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4385,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4376,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4375,
+                  "name": "_shieldTokenContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4385,
+                  "src": "272:28:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4374,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "272:7:34",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "271:30:34"
+            },
+            "returnParameters": {
+              "id": 4377,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "309:0:34"
+            },
+            "scope": 4405,
+            "src": "260:117:34",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4403,
+              "nodeType": "Block",
+              "src": "407:170:34",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4393,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 4388,
+                        "name": "_alreadyDropped",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4373,
+                        "src": "488:15:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 4391,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 4389,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4420,
+                          "src": "504:3:34",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 4390,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "504:10:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "488:27:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 4392,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "518:4:34",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "488:34:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 4394,
+                  "nodeType": "ExpressionStatement",
+                  "src": "488:34:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 4398,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4420,
+                          "src": "553:3:34",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 4399,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "553:10:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "313030303030",
+                        "id": 4400,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "565:6:34",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_100000_by_1",
+                          "typeString": "int_const 100000"
+                        },
+                        "value": "100000"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_rational_100000_by_1",
+                          "typeString": "int_const 100000"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4395,
+                        "name": "shieldTokenContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4369,
+                        "src": "528:19:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ERC20Mintable_$1350",
+                          "typeString": "contract ERC20Mintable"
+                        }
+                      },
+                      "id": 4397,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "mint",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 1349,
+                      "src": "528:24:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 4401,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "528:44:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 4402,
+                  "nodeType": "ExpressionStatement",
+                  "src": "528:44:34"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4404,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDrop",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4386,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "397:2:34"
+            },
+            "returnParameters": {
+              "id": 4387,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "407:0:34"
+            },
+            "scope": 4405,
+            "src": "381:196:34",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4406,
+        "src": "131:448:34"
+      }
+    ],
+    "src": "32:548:34"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/tokens/ShieldTokenFreeDrop.sol",
+      "exportedSymbols": {
+        "ShieldTokenFreeDrop": [
+          4405
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".21",
+            "<",
+            "0.7",
+            ".0"
+          ]
+        },
+        "id": 4366,
+        "name": "PragmaDirective",
+        "src": "32:32:34"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1351,
+          "absolutePath": "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol",
+          "file": "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol",
+          "scope": 4406,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 4367,
+        "name": "ImportDirective",
+        "src": "66:63:34"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            4405
+          ],
+          "name": "ShieldTokenFreeDrop",
+          "scope": 4406
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "shieldTokenContract",
+              "scope": 4405,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract ERC20Mintable",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "ERC20Mintable",
+                  "referencedDeclaration": 1350,
+                  "type": "contract ERC20Mintable"
+                },
+                "id": 4368,
+                "name": "UserDefinedTypeName",
+                "src": "164:13:34"
+              }
+            ],
+            "id": 4369,
+            "name": "VariableDeclaration",
+            "src": "164:40:34"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "_alreadyDropped",
+              "scope": 4405,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => bool)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => bool)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 4370,
+                    "name": "ElementaryTypeName",
+                    "src": "216:7:34"
+                  },
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 4371,
+                    "name": "ElementaryTypeName",
+                    "src": "227:4:34"
+                  }
+                ],
+                "id": 4372,
+                "name": "Mapping",
+                "src": "208:24:34"
+              }
+            ],
+            "id": 4373,
+            "name": "VariableDeclaration",
+            "src": "208:47:34"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 4405,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_shieldTokenContract",
+                      "scope": 4385,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 4374,
+                        "name": "ElementaryTypeName",
+                        "src": "272:7:34"
+                      }
+                    ],
+                    "id": 4375,
+                    "name": "VariableDeclaration",
+                    "src": "272:28:34"
+                  }
+                ],
+                "id": 4376,
+                "name": "ParameterList",
+                "src": "271:30:34"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4377,
+                "name": "ParameterList",
+                "src": "309:0:34"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract ERC20Mintable"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4369,
+                              "type": "contract ERC20Mintable",
+                              "value": "shieldTokenContract"
+                            },
+                            "id": 4378,
+                            "name": "Identifier",
+                            "src": "315:19:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "contract ERC20Mintable",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 1350,
+                                  "type": "type(contract ERC20Mintable)",
+                                  "value": "ERC20Mintable"
+                                },
+                                "id": 4379,
+                                "name": "Identifier",
+                                "src": "337:13:34"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4375,
+                                  "type": "address",
+                                  "value": "_shieldTokenContract"
+                                },
+                                "id": 4380,
+                                "name": "Identifier",
+                                "src": "351:20:34"
+                              }
+                            ],
+                            "id": 4381,
+                            "name": "FunctionCall",
+                            "src": "337:35:34"
+                          }
+                        ],
+                        "id": 4382,
+                        "name": "Assignment",
+                        "src": "315:57:34"
+                      }
+                    ],
+                    "id": 4383,
+                    "name": "ExpressionStatement",
+                    "src": "315:57:34"
+                  }
+                ],
+                "id": 4384,
+                "name": "Block",
+                "src": "309:68:34"
+              }
+            ],
+            "id": 4385,
+            "name": "FunctionDefinition",
+            "src": "260:117:34"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getDrop",
+              "scope": 4405,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4386,
+                "name": "ParameterList",
+                "src": "397:2:34"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 4387,
+                "name": "ParameterList",
+                "src": "407:0:34"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4373,
+                                  "type": "mapping(address => bool)",
+                                  "value": "_alreadyDropped"
+                                },
+                                "id": 4388,
+                                "name": "Identifier",
+                                "src": "488:15:34"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 4420,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 4389,
+                                    "name": "Identifier",
+                                    "src": "504:3:34"
+                                  }
+                                ],
+                                "id": 4390,
+                                "name": "MemberAccess",
+                                "src": "504:10:34"
+                              }
+                            ],
+                            "id": 4391,
+                            "name": "IndexAccess",
+                            "src": "488:27:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 4392,
+                            "name": "Literal",
+                            "src": "518:4:34"
+                          }
+                        ],
+                        "id": 4393,
+                        "name": "Assignment",
+                        "src": "488:34:34"
+                      }
+                    ],
+                    "id": 4394,
+                    "name": "ExpressionStatement",
+                    "src": "488:34:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bool",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                },
+                                {
+                                  "typeIdentifier": "t_rational_100000_by_1",
+                                  "typeString": "int_const 100000"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "mint",
+                              "referencedDeclaration": 1349,
+                              "type": "function (address,uint256) external returns (bool)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4369,
+                                  "type": "contract ERC20Mintable",
+                                  "value": "shieldTokenContract"
+                                },
+                                "id": 4395,
+                                "name": "Identifier",
+                                "src": "528:19:34"
+                              }
+                            ],
+                            "id": 4397,
+                            "name": "MemberAccess",
+                            "src": "528:24:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4420,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 4398,
+                                "name": "Identifier",
+                                "src": "553:3:34"
+                              }
+                            ],
+                            "id": 4399,
+                            "name": "MemberAccess",
+                            "src": "553:10:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "313030303030",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 100000",
+                              "value": "100000"
+                            },
+                            "id": 4400,
+                            "name": "Literal",
+                            "src": "565:6:34"
+                          }
+                        ],
+                        "id": 4401,
+                        "name": "FunctionCall",
+                        "src": "528:44:34"
+                      }
+                    ],
+                    "id": 4402,
+                    "name": "ExpressionStatement",
+                    "src": "528:44:34"
+                  }
+                ],
+                "id": 4403,
+                "name": "Block",
+                "src": "407:170:34"
+              }
+            ],
+            "id": 4404,
+            "name": "FunctionDefinition",
+            "src": "381:196:34"
+          }
+        ],
+        "id": 4405,
+        "name": "ContractDefinition",
+        "src": "131:448:34"
+      }
+    ],
+    "id": 4406,
+    "name": "SourceUnit",
+    "src": "32:548:34"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "41": {
+      "events": {},
+      "links": {},
+      "address": "0x2D153E346Bc499cfd75D72B6964627C69fB14c53",
+      "transactionHash": "0x5509aff14d99e9c839b420a4bb61d23bcf4c5d135ded78592cf47edfc81b5eb9"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x86e1A2A6378017627BccFacF78c975f4f0b69D23",
+      "transactionHash": "0x2c5b4cbb27c3ba217c5b8c6160f05c7e0f75483431c9fdd1fb0a8f10be324cfb"
+    }
+  },
+  "schemaVersion": "3.4.5",
+  "updatedAt": "2022-04-01T07:11:46.834Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

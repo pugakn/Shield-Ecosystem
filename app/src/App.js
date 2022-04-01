@@ -9,6 +9,43 @@ import HomePage from './components/HomePage';
 
 const drizzle = new Drizzle(drizzleOptions);
 
+// DrizzleContext.Provider.prototype.componentDidMount = function(){
+//   const { drizzle } = this.props;
+//   // subscribe to changes in the store, keep state up-to-date
+//   this.unsubscribe = drizzle.store.subscribe(() => {
+//     const drizzleState = drizzle.store.getState();
+//     if (drizzleState.drizzleStatus.initialized) {
+//       const different = JSON.stringify(drizzleState?.contracts) !== JSON.stringify(this.state.drizzleState?.contracts)
+//       if (different) {
+//         console.log(drizzleState?.contracts, this.state.drizzleState?.contracts)
+//         this.setState({
+//           drizzleState,
+//           initialized: true
+//         });
+//       }
+//     }
+//   });
+// }
+
+// Hack
+DrizzleContext.Provider.prototype.componentDidMount = function(){
+  const { drizzle } = this.props;
+  // subscribe to changes in the store, keep state up-to-date
+  this.unsubscribe = drizzle.store.subscribe(() => {
+    const drizzleState = drizzle.store.getState();
+    if (drizzleState.drizzleStatus.initialized) {
+      const different = (JSON.stringify(drizzleState?.contracts)?.replaceAll('"synced":true','"synced":false')) !== 
+                        (JSON.stringify(this.state.drizzleState?.contracts)?.replaceAll('"synced":true','"synced":false'))
+      if (different) {
+        this.setState({
+          drizzleState,
+          initialized: true
+        });
+      }
+    }
+  });
+}
+
 function AppRoot() {
   return (
     <DrizzleContext.Provider drizzle={drizzle}>

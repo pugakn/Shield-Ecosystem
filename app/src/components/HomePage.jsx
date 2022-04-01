@@ -64,7 +64,7 @@ function HomePage_(props, ref) {
     const myNFTItem = drizzleContext.drizzleState.contracts.ShieldNFT.tokenOfOwnerByIndex[nftDataKeys[index]]?.value;
     myNFTList.push(myNFTItem);
   }
-
+  console.log('update homepage')
   return <PlasmicHomePage 
     navbar={{ 
       forgeAmount: forgeAmount,

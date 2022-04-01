@@ -12,10 +12,10 @@ const options = {
     customProvider: new Web3(window.ethereum || Web3.givenProvider || "ws://localhost:7545"),
   },
   contracts: [ShieldMarketplace, ShieldNFT, ForgeToken, ShieldToken, ShieldStaking, ShieldTokenFreeDrop],
-  syncAlways: false,
+  syncAlways: true,
   polls: {
-    accounts: 15000,
-    blocks: 10000,
+    accounts: 3000,
+    blocks: 3000,
   },
 };
 

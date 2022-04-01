@@ -36,22 +36,18 @@ function HomePage_(props, ref) {
 
   React.useEffect(() => {
     const balanceOf = nftContract.methods['balanceOf'].cacheCall(account);
-    const numberAccountNFT = drizzleContext.drizzleState.contracts.ShieldNFT.balanceOf[balanceOf]?.value;
-    let myNFTList = [];
-    for (let index = 0; index < numberAccountNFT; index++) {
-      const myNFTItem = nftContract.methods['tokenOfOwnerByIndex'].cacheCall(account, index);
-      myNFTList.push(myNFTItem);
-    }
-  
-    const marketplaceNFTs = marketplaceContract.methods['marketItemList'].cacheCall();
-    const shieldKey = drizzleContext.drizzle.contracts.ShieldToken.methods['balanceOf'].cacheCall(account);
-    const forgeKey = drizzleContext.drizzle.contracts.ForgeToken.methods['balanceOf'].cacheCall(account);
-    setDataKeys({...dataKeys, balanceOf, myNFTList, shield: shieldKey, forge: forgeKey, marketplaceNFTs: marketplaceNFTs });
-  }, [marketplaceContract.methods,
-      drizzleContext.drizzleState.contracts.ShieldNFT.balanceOf,
-      drizzleContext.drizzleState.contracts.ShieldMarketplace.marketItemList, 
-      drizzleContext.drizzle.contracts.ForgeToken.methods, 
-      drizzleContext.drizzle.contracts.ShieldToken.methods]);
+    nftContract.methods['balanceOf'](account).call().then(numberAccountNFT => {
+      let myNFTList = [];
+      for (let index = 0; index < numberAccountNFT; index++) {
+        const myNFTItem = nftContract.methods['tokenOfOwnerByIndex'].cacheCall(account, index);
+        myNFTList.push(myNFTItem);
+      }
+      const marketplaceNFTs = marketplaceContract.methods['marketItemList'].cacheCall();
+      const shieldKey = drizzleContext.drizzle.contracts.ShieldToken.methods['balanceOf'].cacheCall(account);
+      const forgeKey = drizzleContext.drizzle.contracts.ForgeToken.methods['balanceOf'].cacheCall(account);
+      setDataKeys({balanceOf, myNFTList, shield: shieldKey, forge: forgeKey, marketplaceNFTs: marketplaceNFTs });
+    });
+  }, []);
 
   const shieldAmount = drizzleContext.drizzleState.contracts.ShieldToken.balanceOf[dataKeys.shield]?.value | 0;
   const forgeAmount = drizzleContext.drizzleState.contracts.ForgeToken.balanceOf[dataKeys.forge]?.value | 0;
@@ -112,7 +108,7 @@ function HomePage_(props, ref) {
     myNftList={{
       children: myNFTList.map((item, index) => {
         return <MarketItemCard 
-            key={index} profile={true} itemId={item}
+            key={item} profile={true} itemId={item}
             onAddShield={(_itemId) => {
               setItemId(_itemId);
               setShowAddShieldPopUp(true);
@@ -127,7 +123,7 @@ function HomePage_(props, ref) {
     marketNftList={{
       children: marketplaceNFTs.map((item, index) => {
         return <MarketItemCard 
-            key={index} profile={false} 
+            key={item.contractTokenId} profile={false} 
             itemId={item.contractTokenId}
             price={item.price}
             marketId={item.marketId}
@@ -149,4 +145,4 @@ function HomePage_(props, ref) {
 
 const HomePage = React.forwardRef(HomePage_);
 
-export default HomePage;
+export default React.memo(HomePage);

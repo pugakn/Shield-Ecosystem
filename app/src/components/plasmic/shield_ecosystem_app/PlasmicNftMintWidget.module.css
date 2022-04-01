@@ -22,12 +22,27 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 8px;
 }
-.imageInput {
+.image {
   position: relative;
   object-fit: cover;
   max-width: 100%;
   width: 200px;
   height: 200px;
+  flex-shrink: 0;
+}
+.image > picture > img {
+  object-fit: cover;
+}
+.image > .__wab_img-spacer > img {
+  object-fit: cover;
+}
+.imageInput {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 200px;
+  height: 32px;
+  margin-bottom: 0px;
   flex-shrink: 0;
 }
 .imageInput > picture > img {
@@ -68,4 +83,11 @@
   height: 24px;
   position: relative;
   object-fit: cover;
+}
+.hiddenInput {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }

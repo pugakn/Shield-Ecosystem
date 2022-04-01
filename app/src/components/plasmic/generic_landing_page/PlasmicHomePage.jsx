@@ -121,7 +121,9 @@ function PlasmicHomePage__RenderFunc(props) {
                         sty.text__sAfnI
                       )}
                     >
-                      {"Create and trade NFT on a trusted environment"}
+                      {
+                        "Not just another marketplace, SHIELD helps artists, developers, collectors and end users to adopt NFT tecnology reducing scams an speculation price fluctuations."
+                      }
                     </div>
                   </p.Stack>
 
@@ -6527,7 +6529,7 @@ function PlasmicHomePage__RenderFunc(props) {
                   )}
                 >
                   {
-                    "This es the marketplace, here you can buy NFTs using SHIELD tokens, you can also see the ones thet you are selling, if you have not one on sell go to your NFTs and add it to the market."
+                    "This is the marketplace, here you can buy NFTs using SHIELD tokens, you can also see the ones thet you are selling, if you have not one on sell go to your NFTs and add it to the market."
                   }
                 </div>
               </div>

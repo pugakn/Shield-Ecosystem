@@ -26,7 +26,10 @@ import sunglassesMaleXXZ2KgDyeVng from "./images/sunglassesMale.jpeg"; // plasmi
 
 export const PlasmicMarketItemCard__VariantProps = new Array("profile", "type");
 
-export const PlasmicMarketItemCard__ArgProps = new Array("children");
+export const PlasmicMarketItemCard__ArgProps = new Array(
+  "children",
+  "titleText"
+);
 
 function PlasmicMarketItemCard__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -190,19 +193,70 @@ function PlasmicMarketItemCard__RenderFunc(props) {
         <div
           data-plasmic-name={"title"}
           data-plasmic-override={overrides.title}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.title,
-            {
-              [sty.titleprofile]: hasVariant(variants, "profile", "profile"),
-              [sty.titletype__static]: hasVariant(variants, "type", "_static"),
-              [sty.titletype_dynamic]: hasVariant(variants, "type", "dynamic"),
-              [sty.titletype_onSale]: hasVariant(variants, "type", "onSale")
-            }
-          )}
+          className={classNames(projectcss.all, sty.title, {
+            [sty.titleprofile]: hasVariant(variants, "profile", "profile"),
+            [sty.titletype__static]: hasVariant(variants, "type", "_static"),
+            [sty.titletype_dynamic]: hasVariant(variants, "type", "dynamic"),
+            [sty.titletype_onSale]: hasVariant(variants, "type", "onSale")
+          })}
         >
-          {"Cool NFT title"}
+          <div
+            className={classNames(projectcss.all, sty.freeBox__jo1Sv, {
+              [sty.freeBoxprofile__jo1SvWvqJp]: hasVariant(
+                variants,
+                "profile",
+                "profile"
+              ),
+
+              [sty.freeBoxtype__static__jo1Svzqfqj]: hasVariant(
+                variants,
+                "type",
+                "_static"
+              ),
+
+              [sty.freeBoxtype_dynamic__jo1Sv6K8Co]: hasVariant(
+                variants,
+                "type",
+                "dynamic"
+              ),
+
+              [sty.freeBoxtype_onSale__jo1Svsa2Du]: hasVariant(
+                variants,
+                "type",
+                "onSale"
+              )
+            })}
+          >
+            {p.renderPlasmicSlot({
+              defaultContents: "Cool NFT title",
+              value: args.titleText,
+              className: classNames(sty.slotTargetTitleText, {
+                [sty.slotTargetTitleTextprofile]: hasVariant(
+                  variants,
+                  "profile",
+                  "profile"
+                ),
+
+                [sty.slotTargetTitleTexttype__static]: hasVariant(
+                  variants,
+                  "type",
+                  "_static"
+                ),
+
+                [sty.slotTargetTitleTexttype_dynamic]: hasVariant(
+                  variants,
+                  "type",
+                  "dynamic"
+                ),
+
+                [sty.slotTargetTitleTexttype_onSale]: hasVariant(
+                  variants,
+                  "type",
+                  "onSale"
+                )
+              })
+            })}
+          </div>
         </div>
 
         <ShieldLabel

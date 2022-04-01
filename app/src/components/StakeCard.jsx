@@ -49,4 +49,4 @@ function StakeCard_(props, ref) {
 
 const StakeCard = React.forwardRef(StakeCard_);
 
-export default StakeCard;
+export default React.memo(StakeCard);

@@ -46,11 +46,31 @@ function PlasmicNftMintWidget__RenderFunc(props) {
       )}
     >
       <p.PlasmicImg
+        data-plasmic-name={"image"}
+        data-plasmic-override={overrides.image}
+        alt={""}
+        className={classNames(sty.image)}
+        displayHeight={"200px"}
+        displayMaxHeight={"none"}
+        displayMaxWidth={"100%"}
+        displayMinHeight={"0"}
+        displayMinWidth={"0"}
+        displayWidth={"200px"}
+        loading={"lazy"}
+        src={{
+          src: uploadPngImagespngP8LQzOkqL,
+          fullWidth: 512,
+          fullHeight: 512,
+          aspectRatio: undefined
+        }}
+      />
+
+      <p.PlasmicImg
         data-plasmic-name={"imageInput"}
         data-plasmic-override={overrides.imageInput}
         alt={""}
         className={classNames(sty.imageInput)}
-        displayHeight={"200px"}
+        displayHeight={"32px"}
         displayMaxHeight={"none"}
         displayMaxWidth={"100%"}
         displayMinHeight={"0"}
@@ -81,15 +101,39 @@ function PlasmicNftMintWidget__RenderFunc(props) {
       >
         {"Mint"}
       </Button>
+
+      <input
+        data-plasmic-name={"hiddenInput"}
+        data-plasmic-override={overrides.hiddenInput}
+        className={classNames(
+          projectcss.all,
+          projectcss.input,
+          sty.hiddenInput
+        )}
+        placeholder={"Some placeholder"}
+        size={1}
+        type={"hidden"}
+        value={"Some value"}
+      />
     </p.Stack>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "imageInput", "titleInput", "mintButton"],
+  root: [
+    "root",
+    "image",
+    "imageInput",
+    "titleInput",
+    "mintButton",
+    "hiddenInput"
+  ],
+
+  image: ["image"],
   imageInput: ["imageInput"],
   titleInput: ["titleInput"],
-  mintButton: ["mintButton"]
+  mintButton: ["mintButton"],
+  hiddenInput: ["hiddenInput"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -121,9 +165,11 @@ export const PlasmicNftMintWidget = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    image: makeNodeComponent("image"),
     imageInput: makeNodeComponent("imageInput"),
     titleInput: makeNodeComponent("titleInput"),
     mintButton: makeNodeComponent("mintButton"),
+    hiddenInput: makeNodeComponent("hiddenInput"),
     // Metadata about props expected for PlasmicNftMintWidget
     internalVariantProps: PlasmicNftMintWidget__VariantProps,
     internalArgProps: PlasmicNftMintWidget__ArgProps

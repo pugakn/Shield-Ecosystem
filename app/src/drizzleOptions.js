@@ -9,7 +9,7 @@ import ShieldMarketplace from "./contracts/ShieldMarketplace.json";
 const options = {
   web3: {
     block: false,
-    customProvider: new Web3(Web3.givenProvider || "ws://localhost:7545"),
+    customProvider: new Web3(window.ethereum || Web3.givenProvider || "ws://localhost:7545"),
   },
   contracts: [ShieldMarketplace, ShieldNFT, ForgeToken, ShieldToken, ShieldStaking, ShieldTokenFreeDrop],
   syncAlways: true,

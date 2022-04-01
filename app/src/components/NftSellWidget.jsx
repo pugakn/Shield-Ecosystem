@@ -64,4 +64,4 @@ function NftSellWidget_(props, ref) {
 
 const NftSellWidget = React.forwardRef(NftSellWidget_);
 
-export default NftSellWidget;
+export default React.memo(NftSellWidget);

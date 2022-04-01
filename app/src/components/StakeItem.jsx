@@ -23,4 +23,4 @@ function StakeItem_(props, ref) {
 
 const StakeItem = React.forwardRef(StakeItem_);
 
-export default StakeItem;
+export default React.memo(StakeItem);

@@ -5,6 +5,7 @@ import { DrizzleContext } from "@drizzle/react-plugin";
 function NftAddShieldWidget_(props, ref) {
   const { itemId, forgeAmount, onSubmit, ...rest} = props;
   const [amount, setAmount] = React.useState(0);
+  const [allowanceKeys, setAllowanceKeys] = React.useState({});
 
   const drizzleContext = React.useContext(DrizzleContext.Context);
   const [dataKeys, setDataKeys] = React.useState({});
@@ -16,20 +17,25 @@ function NftAddShieldWidget_(props, ref) {
   const nftContract = drizzle.contracts.ShieldNFT;
 
   React.useEffect(() => {
+    const allowanceKey = forgeContract.methods['allowance'].cacheCall(account,  nftContract.address);
+    setAllowanceKeys({ forge: allowanceKey });
+  }, []);
+
+  React.useEffect(() => {
     if (itemId) {
       const shieldValue = nftContract.methods['tokenShieldValue'].cacheCall(itemId);
-      const allowanceKey = forgeContract.methods['allowance'].cacheCall(account,  nftContract.address);
-      setDataKeys({ shieldValue, shieldValue, allowance: allowanceKey });
+      setDataKeys({ shieldValue, shieldValue });
     }
-  }, [itemId, account]);
+  }, [itemId]);
 
   const shieldValue = drizzleContext.drizzleState.contracts.ShieldNFT.tokenShieldValue[dataKeys.shieldValue]?.value/100 | 0;
   const maxAllowance = '115792089237316195423570985008687907853269984665640564039457584007913129639935';
-  const allowanceAmount = drizzleContext.drizzleState.contracts.ForgeToken.allowance[dataKeys.allowance]?.value;
+  const allowanceAmount = drizzleContext.drizzleState.contracts.ForgeToken.allowance[allowanceKeys.forge]?.value;
+  const isAllowed = allowanceAmount != 0;
 
   return <PlasmicNftAddShieldWidget 
     variants= {{ 
-      approve: allowanceAmount == 0
+      approve: !isAllowed
     }}
     descText={`Add up to ${forgeAmount/100} Power to Shield`}
     amountInput= {{
@@ -38,11 +44,11 @@ function NftAddShieldWidget_(props, ref) {
       }
     }}
     mintButton= {{
-      isDisabled: (amount == 0 || (amount*100) > forgeAmount) && (allowanceAmount != 0),
+      isDisabled: (amount == 0 || (amount*100) > forgeAmount) && isAllowed,
       onClick: () => {
         // If the user has not approved the forge contract, then approve it.
         try {
-          if (allowanceAmount == 0) {
+          if (!isAllowed) {
             forgeContract.methods['approve'].cacheSend(nftContract.address, maxAllowance);
             // If the user has already approved the forge contract, then mint the shield.
           } else {
@@ -65,4 +71,4 @@ function NftAddShieldWidget_(props, ref) {
 
 const NftAddShieldWidget = React.forwardRef(NftAddShieldWidget_);
 
-export default NftAddShieldWidget;
+export default React.memo(NftAddShieldWidget);

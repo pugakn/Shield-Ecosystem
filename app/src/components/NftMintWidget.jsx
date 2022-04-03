@@ -6,7 +6,7 @@ import Compressor from 'compressorjs';
 // !TODO: THIS KEY IS ONLY FOR TESTING PURPOSES. REMOVE ON PRODUCTION AND USE A BACKEND SERVICE INSTEAD.
 const NFT_STORAGE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDRGN2I2ZTc4ZDYxNzY5ODg3MDBjMzRhRTg5QjY1OTJFMjBmQkZEYTMiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY0ODcxMDcwODg3NCwibmFtZSI6IlNoaWVsZERldmVsb3BtZW50In0.EgUZmkxX-YF3mQRaA4IMPVhhtCT93O1sEGr_5y7Ut9A'
 function NftMintWidget_(props, ref) {
-  const { onSubmit, ...rest} = props;
+  const { onSubmit, setLoading, ...rest} = props;
   const [title, setTitle] = React.useState("");
   const [image, setImage] = React.useState();
 
@@ -47,6 +47,7 @@ function NftMintWidget_(props, ref) {
     mintButton={{ 
       isDisabled: (title == '' || !image),
       onClick: async (event) => {
+        setLoading(true);
         const nft = {
           image: image,
           name: title,
@@ -63,10 +64,15 @@ function NftMintWidget_(props, ref) {
         };
         fetch('https://api.nft.storage/store', requestOptions)
         .then(response => response.json())
-        .then(data => {
+        .then(async data => {
           if (data.ok) {
-            nftContract.methods['shieldMint'].cacheSend(data.value.url);
+            try {
+              await nftContract.methods['shieldMint'](data.value.url).send();
+            } catch (error) {
+              
+            }
           }
+          setLoading(false);
         });
         onSubmit();
       }

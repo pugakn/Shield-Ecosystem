@@ -3,7 +3,7 @@ import { PlasmicNftSellWidget } from "./plasmic/shield_ecosystem_app/PlasmicNftS
 import { DrizzleContext } from "@drizzle/react-plugin";
 
 function NftSellWidget_(props, ref) {
-  const { itemId, forgeAmount, onSubmit, onSold, ...rest} = props;
+  const { itemId, forgeAmount, onSubmit, setLoading, ...rest} = props;
   const [amount, setAmount] = React.useState(0);
 
   const drizzleContext = React.useContext(DrizzleContext.Context);
@@ -39,19 +39,20 @@ function NftSellWidget_(props, ref) {
     sellButton={{
       isDisabled: (amount == 0 || (amount*100) > shieldValue*100) && isApproved,
       onClick: async () => {
+        setLoading(true);
         try {
           // If the user has already approved the marketplace contract, then sell the NFT.
           if (isApproved) {
             onSubmit();
             await marketplaceContract.methods['addNFT'](itemId, amount*100).send();
-            onSold();
           // If the user has not approved the marketplace contract, then approve it.
           } else {
-            nftContract.methods['setApprovalForAll'].cacheSend(marketplaceContract.address, true);
+            await nftContract.methods['setApprovalForAll'](marketplaceContract.address, true).send();
           }
         } catch (error) {
           console.error(error);
         }
+        setLoading(false);
       }
     }}
     root={{

@@ -3,7 +3,7 @@ import { PlasmicNftAddShieldWidget } from "./plasmic/shield_ecosystem_app/Plasmi
 import { DrizzleContext } from "@drizzle/react-plugin";
 
 function NftAddShieldWidget_(props, ref) {
-  const { itemId, forgeAmount, onSubmit, ...rest} = props;
+  const { itemId, forgeAmount, onSubmit, setLoading, ...rest} = props;
   const [amount, setAmount] = React.useState(0);
   const [allowanceKeys, setAllowanceKeys] = React.useState({});
 
@@ -45,19 +45,21 @@ function NftAddShieldWidget_(props, ref) {
     }}
     mintButton= {{
       isDisabled: (amount == 0 || (amount*100) > forgeAmount) && isAllowed,
-      onClick: () => {
+      onClick: async () => {
+        setLoading(true);
         // If the user has not approved the forge contract, then approve it.
         try {
           if (!isAllowed) {
-            forgeContract.methods['approve'](nftContract.address, maxAllowance).send();
+            await forgeContract.methods['approve'](nftContract.address, maxAllowance).send();
             // If the user has already approved the forge contract, then mint the shield.
           } else {
-            drizzle.contracts.ShieldNFT.methods['addTokenShieldValue'](itemId, amount*100).send();
             onSubmit();
+            await drizzle.contracts.ShieldNFT.methods['addTokenShieldValue'](itemId, amount*100).send();
           }
         } catch (error) {
           console.error(error);
         }
+        setLoading(false);
       }
     }}
     root={{

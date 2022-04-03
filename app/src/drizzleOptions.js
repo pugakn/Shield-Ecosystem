@@ -13,10 +13,6 @@ const options = {
   },
   contracts: [ShieldMarketplace, ShieldNFT, ForgeToken, ShieldToken, ShieldStaking, ShieldTokenFreeDrop],
   syncAlways: true,
-  polls: {
-    accounts: 3000,
-    blocks: 3000,
-  },
 };
 
 export default options;

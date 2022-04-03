@@ -18,7 +18,7 @@ function MarketItemCard_(props, ref) {
 
   const maxAllowance = '115792089237316195423570985008687907853269984665640564039457584007913129639935';
   React.useEffect(() => {
-    if (itemId !== undefined) {
+    if (itemId) {
       const shieldValue = nftContract.methods['tokenShieldValue'].cacheCall(itemId);
       const metadata = nftContract.methods['tokenURI'](itemId).call().then(uri => {
         if (uri) {

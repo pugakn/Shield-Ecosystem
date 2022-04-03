@@ -26,7 +26,7 @@ function HomePage_(props, ref) {
 
   const drizzleContext = React.useContext(DrizzleContext.Context);
   const [dataKeys, setDataKeys] = React.useState({});
-  const [nftDataKeys, seMyNFTListKeys] = React.useState([]);
+  const [myNFTList, setMyNFTList] = React.useState([]);
   const account = drizzleContext.drizzleState.accounts[0];
   const drizzle = drizzleContext.drizzle;
   const shieldContract = drizzle.contracts.ShieldToken;
@@ -44,26 +44,21 @@ function HomePage_(props, ref) {
   }, []);
 
   React.useEffect(() => {
-    console.log('checking nft balance');
-    nftContract.methods['balanceOf'](account).call().then(numberAccountNFT => {
-      let myNFTList = [];
-      for (let index = 0; index < numberAccountNFT; index++) {
-        const myNFTItem = nftContract.methods['tokenOfOwnerByIndex'].cacheCall(account, index);
-        myNFTList.push(myNFTItem);
-      }
-      seMyNFTListKeys(myNFTList);
+    setMyNFTList([])
+    nftContract.methods['balanceOf'](account).call().then(async numberAccountNFT => {
+      let promises = [];
+        for (let index = 0; index < numberAccountNFT; index++) {
+          promises.push(await nftContract.methods['tokenOfOwnerByIndex'](account, index).call());
+        }
+        const list = await Promise.all(promises);
+        setMyNFTList(list);
     });
-  }, [drizzleContext.drizzleState.contracts.ShieldNFT.balanceOf[dataKeys.nftBalance]]);
+  }, [drizzleContext.drizzleState.contracts.ShieldNFT.balanceOf[dataKeys.nftBalance]?.value]);
 
   const shieldAmount = drizzleContext.drizzleState.contracts.ShieldToken.balanceOf[dataKeys.shield]?.value | 0;
   const forgeAmount = drizzleContext.drizzleState.contracts.ForgeToken.balanceOf[dataKeys.forge]?.value | 0;
-  
   const marketplaceNFTs = drizzleContext.drizzleState.contracts.ShieldMarketplace.marketItemList[dataKeys.marketplaceNFTs]?.value || [];
-  let myNFTList = [];
-  for (let index = 0; index < nftDataKeys.length; index++) {
-    const myNFTItem = drizzleContext.drizzleState.contracts.ShieldNFT.tokenOfOwnerByIndex[nftDataKeys[index]]?.value;
-    myNFTList.push(myNFTItem);
-  }
+
   console.log('update homepage')
   return <PlasmicHomePage 
     navbar={{ 
@@ -97,6 +92,8 @@ function HomePage_(props, ref) {
         forgeAmount= {forgeAmount}
         itemId= {itemId}
         onSubmit={()=> setShowSellPopUp(false)}
+        onSold={()=> {
+        }}
       />
     }}
     mintButton={{ 

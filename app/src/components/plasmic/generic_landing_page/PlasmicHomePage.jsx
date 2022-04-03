@@ -162,6 +162,7 @@ function PlasmicHomePage__RenderFunc(props) {
                       data-plasmic-override={overrides.button}
                       className={classNames("__wab_instance", sty.button)}
                       color={"primary"}
+                      link={"https://irving-puga.gitbook.io/shield-ecosystem/"}
                       round={true}
                     >
                       <div
@@ -6373,6 +6374,20 @@ function PlasmicHomePage__RenderFunc(props) {
               </div>
             </p.Stack>
           </p.Stack>
+
+          <div className={classNames(projectcss.all, sty.freeBox___6T1Ff)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__o6WJc
+              )}
+            >
+              {
+                "Let's stop speculation on NFT, \nadopt the technology the right way!"
+              }
+            </div>
+          </div>
 
           <Section
             data-plasmic-name={"mintSection"}

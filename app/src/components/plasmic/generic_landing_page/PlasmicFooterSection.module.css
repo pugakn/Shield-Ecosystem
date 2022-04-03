@@ -126,24 +126,22 @@
   > img {
   margin-left: 16px;
 }
-.svg__kSkPl {
-  object-fit: cover;
-  width: 24px;
-  height: 24px;
-  color: var(--token-UwFgsC86hUq8h);
-  flex-shrink: 0;
+.link {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
 }
-.svg__duXN {
+.svg {
   object-fit: cover;
   width: 24px;
   height: 24px;
   color: var(--token-UwFgsC86hUq8h);
-  flex-shrink: 0;
-}
-.svg__lbR9B {
-  object-fit: cover;
-  width: 24px;
-  height: 24px;
-  color: var(--token-UwFgsC86hUq8h);
+  cursor: pointer;
   flex-shrink: 0;
 }

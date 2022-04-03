@@ -21,9 +21,7 @@ import { useScreenVariants as useScreenVariantsjeKVrGjKUcgD } from "./PlasmicGlo
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_generic_landing_page.module.css"; // plasmic-import: 32A6R5tEk8Q2nVvJmPnVbf/projectcss
 import sty from "./PlasmicFooterSection.module.css"; // plasmic-import: ZPeZubRauiZV6n/css
-import TwitterIcon from "./icons/PlasmicIcon__Twitter"; // plasmic-import: f1eSxu4yPLlSu/icon
 import GithubIcon from "./icons/PlasmicIcon__Github"; // plasmic-import: w2xQouQciXyqS/icon
-import LinkedinIcon from "./icons/PlasmicIcon__Linkedin"; // plasmic-import: LDJr20piF5PIJ/icon
 
 export const PlasmicFooterSection__VariantProps = new Array();
 
@@ -88,20 +86,19 @@ function PlasmicFooterSection__RenderFunc(props) {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__eaQcq)}
             >
-              <TwitterIcon
-                className={classNames(projectcss.all, sty.svg__kSkPl)}
-                role={"img"}
-              />
-
-              <GithubIcon
-                className={classNames(projectcss.all, sty.svg__duXN)}
-                role={"img"}
-              />
-
-              <LinkedinIcon
-                className={classNames(projectcss.all, sty.svg__lbR9B)}
-                role={"img"}
-              />
+              <a
+                data-plasmic-name={"link"}
+                data-plasmic-override={overrides.link}
+                className={classNames(projectcss.all, projectcss.a, sty.link)}
+                href={"https://github.com/pugakn/Shield-Ecosystem"}
+              >
+                <GithubIcon
+                  data-plasmic-name={"svg"}
+                  data-plasmic-override={overrides.svg}
+                  className={classNames(projectcss.all, sty.svg)}
+                  role={"img"}
+                />
+              </a>
             </p.Stack>
           </p.Stack>
         </p.Stack>
@@ -111,9 +108,11 @@ function PlasmicFooterSection__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "logo", "text"],
+  root: ["root", "logo", "text", "link", "svg"],
   logo: ["logo"],
-  text: ["text"]
+  text: ["text"],
+  link: ["link", "svg"],
+  svg: ["svg"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -147,6 +146,8 @@ export const PlasmicFooterSection = Object.assign(
     // Helper components rendering sub-elements
     logo: makeNodeComponent("logo"),
     text: makeNodeComponent("text"),
+    link: makeNodeComponent("link"),
+    svg: makeNodeComponent("svg"),
     // Metadata about props expected for PlasmicFooterSection
     internalVariantProps: PlasmicFooterSection__VariantProps,
     internalArgProps: PlasmicFooterSection__ArgProps

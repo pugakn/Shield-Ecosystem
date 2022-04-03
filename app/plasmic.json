@@ -679,11 +679,61 @@
           "id": "WMJ5eSLgj",
           "name": "logo.svg 2",
           "filePath": "plasmic/shield_ecosystem_app/images/logosvg2.svg"
+        },
+        {
+          "id": "l7-wIaQy1",
+          "name": "pexels-pierre-blaché-3026244.jpg",
+          "filePath": "plasmic/shield_ecosystem_app/images/pexelsPierreBlache3026244Jpg.jpeg"
+        },
+        {
+          "id": "ZNbA1m1tm",
+          "name": "pexels-pixabay-315191.jpg",
+          "filePath": "plasmic/shield_ecosystem_app/images/pexelsPixabay315191Jpg.jpeg"
         }
       ],
       "indirect": false,
       "globalContextsFilePath": "",
       "codeComponents": []
+    },
+    {
+      "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
+      "projectApiToken": "DIkcfhBwjMCJSjcxfBkMuy4NImyytq5EWylxVcpS9t9EpdhnPQuBgBGxmk00AB1itMFa1KXTxOKnrjN2PN9nlA",
+      "projectName": "react-awesome-reveal",
+      "version": "2.1.2",
+      "cssFilePath": "plasmic/react_awesome_reveal/plasmic_react_awesome_reveal.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "codeComponents": [
+        {
+          "id": "R6s1FdhksG",
+          "name": "Reveal",
+          "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
+        }
+      ],
+      "jsBundleThemes": []
+    },
+    {
+      "projectId": "szjgMQpPpxhmkjnaBvZQJG",
+      "projectApiToken": "xBIsrWHdWZ9kVgFEGUt29LOZPWfm0XidYqRHqPhQXsEjDHevjIbp44nEYMIZ46YOoxrN8anfXjreTkDtFjTA",
+      "projectName": "react-parallax-tilt",
+      "version": "1.0.4",
+      "cssFilePath": "plasmic/react_parallax_tilt/plasmic_react_parallax_tilt.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "codeComponents": [
+        {
+          "id": "PfY466VIuq",
+          "name": "Tilt",
+          "componentImportPath": "@plasmicpkgs/react-parallax-tilt"
+        }
+      ],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {
@@ -699,6 +749,12 @@
         "name": "Screen",
         "projectId": "32A6R5tEk8Q2nVvJmPnVbf",
         "contextFilePath": "plasmic/generic_landing_page/PlasmicGlobalVariant__Screen.jsx"
+      },
+      {
+        "id": "ckLLdnw4lO",
+        "name": "Screen",
+        "projectId": "szjgMQpPpxhmkjnaBvZQJG",
+        "contextFilePath": "plasmic/react_parallax_tilt/PlasmicGlobalVariant__Screen.jsx"
       }
     ]
   },

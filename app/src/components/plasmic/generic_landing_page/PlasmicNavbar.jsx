@@ -97,36 +97,17 @@ function PlasmicNavbar__RenderFunc(props) {
           className={classNames(projectcss.all, sty.freeBox__os7Mj)}
         >
           <Button
-            className={classNames("__wab_instance", sty.button___8XyGu)}
-            color={"navLink"}
-          >
-            {"Stake "}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__nuYni)}
-            color={"navLink"}
-          >
-            {"Mint"}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__fAfMm)}
-            color={"navLink"}
-          >
-            {"Power"}
-          </Button>
-
-          <Button
-            className={classNames("__wab_instance", sty.button__olm0I)}
-            color={"navLink"}
-          >
-            {"Trade"}
-          </Button>
-
-          <Button
             className={classNames("__wab_instance", sty.button__ic0MU)}
             color={"navLink"}
+            link={"https://irving-puga.gitbook.io/shield-ecosystem/"}
+          >
+            {"Documentation"}
+          </Button>
+
+          <Button
+            className={classNames("__wab_instance", sty.button__tZ69L)}
+            color={"navLink"}
+            link={"https://discord.gg/AhS3tznwCd"}
           >
             {"Community"}
           </Button>

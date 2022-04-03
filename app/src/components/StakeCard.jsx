@@ -1,8 +1,10 @@
 import * as React from "react";
 import { PlasmicStakeCard } from "./plasmic/generic_landing_page/PlasmicStakeCard";
 import { DrizzleContext } from "@drizzle/react-plugin";
+import { toast } from 'react-toastify';
 
 function StakeCard_(props, ref) {
+  const {setLoading ,...rest} = props;
   const [amount, setAmount] = React.useState(0);
 
   const drizzleContext = React.useContext(DrizzleContext.Context);
@@ -33,19 +35,18 @@ function StakeCard_(props, ref) {
       }}
       approveButton={{
         isDisabled: !amount && allowanceAmount != 0,
-        onClick: () => {
+        onClick: async () => {
           try {
+            setLoading(true);
             if (allowanceAmount == 0) {
-              shieldContract.methods["approve"].cacheSend(
-                stakingContract.address,
-                maxAllowance
-              );
+              await shieldContract.methods["approve"](stakingContract.address,maxAllowance).send();
             } else {
-              stakingContract.methods["stake"].cacheSend(amount * 100);
+              await stakingContract.methods["stake"](amount * 100).send();
             }
           } catch (error) {
             console.error(error);
           }
+          setLoading(false);
         },
       }}
       amountInput={{
@@ -54,7 +55,7 @@ function StakeCard_(props, ref) {
         },
       }}
       root={{ ref }}
-      {...props}
+      {...rest}
     />
   );
 }

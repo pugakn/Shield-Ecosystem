@@ -3,7 +3,8 @@ import { DrizzleContext } from "@drizzle/react-plugin";
 import { Drizzle } from "@drizzle/store";
 import drizzleOptions from "./drizzleOptions";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // COMPONENTS
 import HomePage from "./components/HomePage";
 
@@ -60,6 +61,7 @@ function AppRoot() {
   };
   return (
     <DrizzleContext.Provider drizzle={drizzle}>
+      <ToastContainer/>
       <DrizzleContext.Consumer>
         {(drizzleContext) => {
           const { drizzle, drizzleState, initialized } = drizzleContext;

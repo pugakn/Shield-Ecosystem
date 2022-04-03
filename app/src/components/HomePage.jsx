@@ -100,6 +100,16 @@ function HomePage_(props, ref) {
           forgeAmount: forgeAmount,
           shieldAmount: shieldAmount,
         }}
+        stakeList={{ 
+          props:{
+            setLoading: setShowLoading
+          }
+        }}
+        stakeCard={{
+          props:{
+            setLoading: setShowLoading
+          }
+        }}
         mintPopUp={{
           isVisible: showMintPopUp,
           onClick: () => {

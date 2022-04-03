@@ -4,6 +4,7 @@ import { DrizzleContext } from "@drizzle/react-plugin";
 import StakeItem from "./StakeItem";
 
 function StakeList_(props, ref) {
+  const {setLoading, ...rest} = props;
   const drizzleContext = React.useContext(DrizzleContext.Context);
   const [dataKeys, setDataKeys] = React.useState({});
   const account = drizzleContext.drizzleState.accounts[0];
@@ -34,19 +35,21 @@ function StakeList_(props, ref) {
             dateText={`Locked until: ${lockDate.toLocaleString()}`}
             enabled={now > lockDate}
             unstakeButton={{
-              onClick: () => {
+              onClick: async () => {
+                setLoading(true);
                 try {
-                  stakingContract.methods["withdraw"].cacheSend(index);
+                  await stakingContract.methods["withdraw"](index).send();
                 } catch (error) {
                   console.error(error);
                 }
+                setLoading(false);
               },
             }}
           />
         );
       })}
       root={{ ref }}
-      {...props}
+      {...rest}
     />
   );
 }

@@ -12,35 +12,43 @@ function StakeList_(props, ref) {
   const stakingContract = drizzle.contracts.ShieldStaking;
 
   React.useEffect(() => {
-    const accountPaymentPromisesKey = stakingContract.methods['accountPaymentPromises'].cacheCall(account);
+    const accountPaymentPromisesKey =
+      stakingContract.methods["accountPaymentPromises"].cacheCall(account);
     setDataKeys({ accountPaymentPromises: accountPaymentPromisesKey });
   }, []);
 
-  const accountPaymentPromises = drizzleContext.drizzleState.contracts.ShieldStaking.accountPaymentPromises[dataKeys.accountPaymentPromises]?.value || [];
+  const accountPaymentPromises =
+    drizzleContext.drizzleState.contracts.ShieldStaking.accountPaymentPromises[
+      dataKeys.accountPaymentPromises
+    ]?.value || [];
   const now = new Date();
-  
-  return <PlasmicStakeList
-    children={accountPaymentPromises.map((item, index) => {
-      const lockDate = new Date(item.time*1000);
-      return <StakeItem 
-        key={index}
-        shieldText={`Staked SHIELD: ${item.amount/100}`}
-        dateText={`Locked until: ${lockDate.toLocaleString()}`}
-        enabled={now > lockDate}
-        unstakeButton={{
-          onClick: () => {
-            try {
-              stakingContract.methods['withdraw'].cacheSend(index);
-            } catch (error) {
-              console.error(error);
-            }
-          }
-        }}
-      />
-    })}
-    root={{ ref }} 
-    {...props} 
-  />;
+
+  return (
+    <PlasmicStakeList
+      children={accountPaymentPromises.map((item, index) => {
+        const lockDate = new Date(item.time * 1000);
+        return (
+          <StakeItem
+            key={index}
+            shieldText={`Staked SHIELD: ${item.amount / 100}`}
+            dateText={`Locked until: ${lockDate.toLocaleString()}`}
+            enabled={now > lockDate}
+            unstakeButton={{
+              onClick: () => {
+                try {
+                  stakingContract.methods["withdraw"].cacheSend(index);
+                } catch (error) {
+                  console.error(error);
+                }
+              },
+            }}
+          />
+        );
+      })}
+      root={{ ref }}
+      {...props}
+    />
+  );
 }
 
 const StakeList = React.forwardRef(StakeList_);

@@ -13,38 +13,50 @@ function StakeCard_(props, ref) {
   const stakingContract = drizzle.contracts.ShieldStaking;
 
   React.useEffect(() => {
-    const allowanceKey = shieldContract.methods['allowance'].cacheCall(account,  stakingContract.address);
+    const allowanceKey = shieldContract.methods["allowance"].cacheCall(
+      account,
+      stakingContract.address
+    );
     setDataKeys({ allowance: allowanceKey });
   }, []);
 
-  const maxAllowance = '115792089237316195423570985008687907853269984665640564039457584007913129639935';
-  const allowanceAmount = drizzleContext.drizzleState.contracts.ShieldToken.allowance[dataKeys.allowance]?.value;
-  return <PlasmicStakeCard 
-    variants= {{ 
-      approve: allowanceAmount == 0
-    }}
-    approveButton= {{
-      isDisabled: !amount && (allowanceAmount != 0),
-      onClick: () => {
-        try {
-          if (allowanceAmount == 0) {
-            shieldContract.methods['approve'].cacheSend(stakingContract.address, maxAllowance);
-          } else {
-            stakingContract.methods['stake'].cacheSend(amount*100);
+  const maxAllowance =
+    "115792089237316195423570985008687907853269984665640564039457584007913129639935";
+  const allowanceAmount =
+    drizzleContext.drizzleState.contracts.ShieldToken.allowance[
+      dataKeys.allowance
+    ]?.value;
+  return (
+    <PlasmicStakeCard
+      variants={{
+        approve: allowanceAmount == 0,
+      }}
+      approveButton={{
+        isDisabled: !amount && allowanceAmount != 0,
+        onClick: () => {
+          try {
+            if (allowanceAmount == 0) {
+              shieldContract.methods["approve"].cacheSend(
+                stakingContract.address,
+                maxAllowance
+              );
+            } else {
+              stakingContract.methods["stake"].cacheSend(amount * 100);
+            }
+          } catch (error) {
+            console.error(error);
           }
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    }}
-    amountInput= {{
-      onChange: (e) => {
-        setAmount(e.target.value);
-      }
-    }}
-    root={{ ref }} 
-    {...props} 
-  />;
+        },
+      }}
+      amountInput={{
+        onChange: (e) => {
+          setAmount(e.target.value);
+        },
+      }}
+      root={{ ref }}
+      {...props}
+    />
+  );
 }
 
 const StakeCard = React.forwardRef(StakeCard_);
